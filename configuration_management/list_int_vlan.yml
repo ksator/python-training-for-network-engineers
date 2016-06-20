@@ -1,0 +1,10 @@
+---
+host_ports:
+    - ge-0/0/9
+    - ge-0/0/10
+    - ge-0/0/16
+    - ge-0/0/18
+
+vlan:
+    name: v14
+    vlan_id: 14

@@ -1,0 +1,57 @@
+admin@FR-EX2200-110> show configuration vlans | display set
+set vlans Vlan-3333 description "VLAN de test"
+set vlans Vlan-3333 vlan-id 3333
+set vlans default l3-interface vlan.0
+set vlans vlan-1001 vlan-id 1001
+set vlans vlan-1002 vlan-id 1002
+set vlans vlan-1003 vlan-id 1003
+set vlans vlan-1004 vlan-id 1004
+set vlans vlan-1005 vlan-id 1005
+set vlans vlan-101 vlan-id 101
+set vlans vlan-102 vlan-id 102
+set vlans vlan-103 vlan-id 103
+set vlans vlan-104 vlan-id 104
+set vlans vlan-109 description "Profile created as part of device discovery"
+set vlans vlan-109 vlan-id 109
+set vlans vlan-109 l3-interface vlan.109
+set vlans vlan-110 description "Vlan 172.30.110.0/24"
+set vlans vlan-110 vlan-id 110
+set vlans vlan-111 description "Vlan 172.30.111.0/24"
+set vlans vlan-111 vlan-id 111
+set vlans vlan-1111 vlan-id 1111
+set vlans vlan-150 vlan-id 150
+set vlans vlan-172
+set vlans vlan-173
+set vlans vlan-175
+set vlans vlan-2001 vlan-id 2001
+set vlans vlan-2002 vlan-id 2002
+set vlans vlan-201 vlan-id 201
+set vlans vlan-201 l3-interface vlan.201
+set vlans vlan-202 vlan-id 202
+set vlans vlan-202 l3-interface vlan.202
+set vlans vlan-3001 vlan-id 3001
+set vlans vlan-3002 vlan-id 3002
+set vlans vlan-SRXHA-ControlLink vlan-id 1997
+set vlans vlan-SRXHA-ControlLink interface ge-0/1/1.0
+set vlans vlan-SRXHA-FabricLink vlan-id 1996
+set vlans vlan-SRXHA-FabricLink interface ge-0/0/22.0
+set vlans vlan-SRXHA-FabricLink interface ge-0/0/23.0
+set vlans vlan-rewrite-177 vlan-id 177
+set vlans vlan-rewrite-178 vlan-id 178
+set vlans vlan-rewrite-179 vlan-id 179
+set vlans vlan-rewrite-180 vlan-id 180
+set vlans vlan-roma-1068 description "Vlan Site-Roma"
+set vlans vlan-roma-1068 vlan-id 1068
+set vlans vlan-workshop-171 vlan-id 171
+set vlans vlan-workshop-171 l3-interface vlan.171
+set vlans vlan-workshop-172 vlan-id 172
+set vlans vlan-workshop-172 l3-interface vlan.172
+set vlans vlan-workshop-173 vlan-id 173
+set vlans vlan-workshop-173 l3-interface vlan.173
+set vlans vlan-workshop-174 vlan-id 174
+set vlans vlan-workshop-175 vlan-id 175
+set vlans vlan10 vlan-id 10
+set vlans vlan20 vlan-id 20
+
+{master:0}
+admin@FR-EX2200-110>

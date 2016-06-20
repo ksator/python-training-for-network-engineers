@@ -1,0 +1,12 @@
+---
+# this is a yaml list. there is one item per device.
+# each item is a dictionnary with 2 key:value pairs.
+# if you change this yaml structure you'll have to adapt the way you parse it from both jinja2 and python.
+- host_name: ex4300-4
+  vme_ip: 172.30.179.65
+## ------------------------------------------ ##
+- host_name: ex4300-9
+  vme_ip: 172.30.179.95
+## ------------------------------------------ ##
+- host_name: ex4300-10
+  vme_ip: 172.30.179.96

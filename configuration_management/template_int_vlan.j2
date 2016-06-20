@@ -1,0 +1,5 @@
+set vlans {{ vlan.name }} vlan-id {{ vlan.vlan_id }}
+{%- for iface in host_ports %}
+set interfaces {{ iface }} unit 0 family ethernet-switching port-mode access vlan members {{ vlan.name }}
+{%- endfor %}
+

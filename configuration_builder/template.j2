@@ -1,0 +1,53 @@
+interfaces {
+    {%- for item in uplinks %}
+    {{uplinks[item]['interface']}} {
+        description "{{uplinks[item]['description']}}";
+        unit 0 {
+            family inet {
+                address {{uplinks[item]['address']}}/31;
+            }
+        }
+    }
+{%- endfor %}
+}
+routing-options {
+    router-id {{router_id}};
+    forwarding-table {
+        export bgp-ecmp;
+    }
+}
+protocols {
+    bgp {
+        group PyEZtraining {
+            type external;
+            import bgp-in;
+            family inet {
+                unicast;
+            }
+            export bgp-out;
+            local-as {{bgp.local_asn}};
+            multipath multiple-as;
+            {%- for item in bgp.neighbors %}
+            neighbor {{bgp.neighbors[item]['ip']}} {
+                peer-as {{bgp.neighbors[item]['peer_as']}};
+            }
+        {%- endfor %}
+        }
+    }
+    lldp {
+        interface all;
+    }
+}
+policy-options {
+    policy-statement bgp-ecmp {
+        then {
+            load-balance per-packet;
+        }
+    }
+    policy-statement bgp-in {
+        then accept;
+    }
+    policy-statement bgp-out {
+        then accept;
+    }
+}

@@ -1,0 +1,30 @@
+system {
+    host-name {{host_name}};
+    root-authentication {
+        encrypted-password $1$X1Voripv$2Z70Lm20kqKLF.JBxoD2B1;
+    }
+    services {
+        ssh {
+            root-login allow;
+        }
+        netconf {
+            ssh;
+        }
+    }
+}
+interfaces {
+    vme {
+        description "management interface";
+        unit 0 {
+            family inet {
+                address {{vme_ip}}/24;
+            }
+        }
+    }
+}
+routing-options {
+    static {
+        route 0.0.0.0/0 next-hop 172.30.179.1;
+    }
+}
+ 

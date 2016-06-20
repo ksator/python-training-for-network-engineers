@@ -1,0 +1,67 @@
+---
+- host_name: ex4300-4
+  management_ip: 172.30.179.65  
+  router_id: 10.20.1.1
+  uplinks: 
+   to_neighbor1: 
+    interface: ge-0/0/0
+    description: "UPLINK to ex4300-9"
+    address: 192.168.0.0
+   to_neighbor2: 
+    interface: ge-0/0/1
+    description: "UPLINK to ex4300-10"
+    address: 192.168.0.2
+  bgp: 
+   local_asn: 104
+   neighbors:
+    neighbor_1:   
+     ip: 192.168.0.1 
+     peer_as: 109
+    neighbor_2:   
+     ip: 192.168.0.3
+     peer_as: 110
+## ------------------------------------------ ##
+- host_name: ex4300-9
+  management_ip: 172.30.179.95
+  router_id: 10.20.1.2
+  uplinks: 
+   to_neighbor1: 
+    interface: ge-0/0/0
+    description: "UPLINK to ex4300-10"
+    address: 192.168.0.5
+   to_neighbor2: 
+    interface: ge-0/0/1
+    description: "UPLINK to ex4300-4"
+    address: 192.168.0.1
+  bgp: 
+   local_asn: 109
+   neighbors:
+    neighbor1:   
+     ip: 192.168.0.4 
+     peer_as: 110
+    neighbor2:   
+     ip: 192.168.0.0
+     peer_as: 104
+## ------------------------------------------ ##
+- host_name: ex4300-10
+  management_ip: 172.30.179.96
+  router_id: 10.20.1.3
+  uplinks: 
+   to_neighbor1: 
+    interface: ge-0/0/0
+    description: "UPLINK to ex4300-9"
+    address: 192.168.0.4
+   to_neighbor2: 
+    interface: ge-0/0/1
+    description: "UPLINK to ex4300-4"
+    address: 192.168.0.3
+  bgp: 
+   local_asn: 110
+   neighbors:
+    neighbor1:   
+     ip: 192.168.0.5 
+     peer_as: 109
+    neighbor2:   
+     ip: 192.168.0.2
+     peer_as: 104
+## ------------------------------------------ ##

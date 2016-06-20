@@ -1,0 +1,206 @@
+admin@FR-EX2200-110> show configuration | display set 
+set version 12.3R3.4
+set system host-name FR-EX2200-110
+set system auto-snapshot
+set system services ftp
+set system services ssh root-login allow
+set system services ssh protocol-version v2
+set system services ssh max-sessions-per-connection 32
+set system services netconf ssh
+set system services web-management http
+set system syslog user * any emergency
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set system syslog file default-log-messages any any
+set system syslog file default-log-messages match "(requested 'commit' operation)|(copying configuration to juniper.save)|(commit complete)|ifAdminStatus|(FRU power)|(FRU removal)|(FRU insertion)|(link UP)|transitioned|Transferred|transfer-file|(license add)|(license delete)|(package -X update)|(package -X delete)|(FRU Online)|(FRU Offline)|(plugged in)|(unplugged)|cm_device|(Master Unchanged, Members Changed)|(Master Changed, Members Changed)|(Master Detected, Members Changed)|(vc add)|(vc delete)|(Master detected)|(Master changed)|(Backup detected)|(Backup changed)|(interface vcp-)"
+set system syslog file default-log-messages structured-data
+set chassis aggregated-devices ethernet device-count 5
+set interfaces ge-0/0/0 description "EX2200-VC-FRONT ge-2/0/4"
+set interfaces ge-0/0/0 unit 0 family ethernet-switching port-mode trunk
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members vlan-workshop-171
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members vlan-workshop-172
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members vlan-workshop-173
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members vlan-109
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members vlan-workshop-174
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members vlan-workshop-175
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members vlan-110
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members vlan-111
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members vlan-roma-1068
+set interfaces ge-0/0/0 unit 0 family ethernet-switching native-vlan-id default
+set interfaces ge-0/0/1 description "J2320-TOKYO ge-0/0/2"
+set interfaces ge-0/0/1 unit 0 family ethernet-switching port-mode trunk
+set interfaces ge-0/0/1 unit 0 family ethernet-switching vlan members vlan-1002
+set interfaces ge-0/0/1 unit 0 family ethernet-switching vlan members vlan-1004
+set interfaces ge-0/0/2 description SRX550-Site1
+set interfaces ge-0/0/2 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members vlan-workshop-172
+set interfaces ge-0/0/3 description SRX650-Site2
+set interfaces ge-0/0/3 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members vlan-workshop-173
+set interfaces ge-0/0/4 description "Trafic client"
+set interfaces ge-0/0/4 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members vlan-workshop-175
+set interfaces ge-0/0/5 mtu 9216
+set interfaces ge-0/0/5 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/5 unit 0 family ethernet-switching vlan members vlan-104
+set interfaces ge-0/0/6 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/6 unit 0 family ethernet-switching vlan members vlan-workshop-174
+set interfaces ge-0/0/7 unit 0 description "POC SG FGU - VLAN 172 - SITE BRUGES"
+set interfaces ge-0/0/7 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/7 unit 0 family ethernet-switching vlan members vlan-workshop-172
+set interfaces ge-0/0/8 description "SRX210-BERLIN ge-0/0/2"
+set interfaces ge-0/0/8 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/8 unit 0 family ethernet-switching vlan members vlan-109
+
+set interfaces ge-0/0/9 unit 0 description "POC SG FGU - VLAN 172 - SITE BRUGES"
+set interfaces ge-0/0/9 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/9 unit 0 family ethernet-switching vlan members vlan-workshop-172
+set interfaces ge-0/0/10 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/10 unit 0 family ethernet-switching vlan members vlan-109
+set interfaces ge-0/0/11 unit 0 description "POC SG FGU - VLAN 172 - SITE BRUGES"
+set interfaces ge-0/0/11 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/11 unit 0 family ethernet-switching vlan members vlan-workshop-172
+set interfaces ge-0/0/12 description "SRX550-IBIZA-A port ge-0/0/4"
+set interfaces ge-0/0/12 ether-options 802.3ad ae2
+set interfaces ge-0/0/13 description "SRX550-IBIZA-B port ge-0/0/4"
+set interfaces ge-0/0/13 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members vlan-202
+set interfaces ge-0/0/15 description "SRX550-IBIZA-B port ge-0/0/3"
+set interfaces ge-0/0/15 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/15 unit 0 family ethernet-switching vlan members vlan-201
+set interfaces ge-0/0/16 description "SRX210NYC - ge-0/0/3"
+set interfaces ge-0/0/16 unit 0 family ethernet-switching port-mode trunk
+set interfaces ge-0/0/16 unit 0 family ethernet-switching vlan members vlan-150
+set interfaces ge-0/0/16 unit 0 family ethernet-switching vlan members vlan-1111
+set interfaces ge-0/0/18 description "SRX3400-HAUT ge-0/0/0"
+set interfaces ge-0/0/18 ether-options 802.3ad ae0
+set interfaces ge-0/0/19 description "SRX3400-BAS ge-0/0/0"
+set interfaces ge-0/0/19 ether-options 802.3ad ae1
+set interfaces ge-0/0/20 vlan-tagging
+set interfaces ge-0/0/20 unit 10 vlan-id 10
+set interfaces ge-0/0/20 unit 20 vlan-id 20
+set interfaces ge-0/0/22 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/0/23 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/1/0 ether-options 802.3ad ae3
+set interfaces ge-0/1/1 description "SRX3400-BAS HA Control link"
+set interfaces ge-0/1/1 unit 0 family ethernet-switching port-mode access
+set interfaces ge-0/1/1 unit 0 family ethernet-switching vlan members vlan-SRXHA-ControlLink
+set interfaces ge-1/0/3 description "Control Link SRX550"
+set interfaces ge-1/0/3 mtu 9216
+set interfaces ge-1/0/3 unit 0 family ethernet-switching port-mode access
+set interfaces ge-1/0/3 unit 0 family ethernet-switching vlan members vlan-104
+set interfaces ge-1/0/4 description "FABRIC Link SRX550"
+set interfaces ge-1/0/4 mtu 9216
+set interfaces ge-1/0/4 unit 0 family ethernet-switching port-mode access
+set interfaces ge-1/0/4 unit 0 family ethernet-switching vlan members vlan-103
+set interfaces ge-1/0/12 ether-options 802.3ad ae2
+set interfaces ge-1/1/0 ether-options 802.3ad ae3
+set interfaces ae0 description "LAG to SRX3400-HAUT ge-0/0/0 ge-0/0/2"
+set interfaces ae0 unit 0 family ethernet-switching port-mode trunk
+set interfaces ae0 unit 0 family ethernet-switching vlan members vlan-workshop-171
+set interfaces ae0 unit 0 family ethernet-switching vlan members vlan-workshop-172
+set interfaces ae0 unit 0 family ethernet-switching vlan members vlan-workshop-173
+set interfaces ae0 unit 0 family ethernet-switching vlan members vlan-workshop-174
+set interfaces ae0 unit 0 family ethernet-switching vlan members vlan-workshop-175
+set interfaces ae0 unit 0 family ethernet-switching vlan members vlan-109
+set interfaces ae1 description "LAG to SRX3400-BAS ge-0/0/0 ge-0/0/2"
+set interfaces ae1 unit 0 family ethernet-switching port-mode trunk
+set interfaces ae1 unit 0 family ethernet-switching vlan members vlan-workshop-171
+set interfaces ae1 unit 0 family ethernet-switching vlan members vlan-workshop-172
+set interfaces ae1 unit 0 family ethernet-switching vlan members vlan-workshop-173
+---(more 53%)---[]---
+                                                                               
+set interfaces ae1 unit 0 family ethernet-switching vlan members vlan-workshop-174
+set interfaces ae1 unit 0 family ethernet-switching vlan members vlan-workshop-175
+set interfaces ae1 unit 0 family ethernet-switching vlan members vlan-109
+set interfaces ae2 unit 0 family ethernet-switching port-mode trunk
+set interfaces ae2 unit 0 family ethernet-switching vlan members vlan-110
+set interfaces ae2 unit 0 family ethernet-switching vlan members vlan-workshop-175
+set interfaces ae3 mtu 9216
+set interfaces ae3 unit 0 family ethernet-switching port-mode trunk
+set interfaces ae3 unit 0 family ethernet-switching vlan members vlan-103
+set interfaces ae3 unit 0 family ethernet-switching vlan members vlan-104
+set interfaces ae3 unit 0 family ethernet-switching vlan members vlan-102
+set interfaces ae3 unit 0 family ethernet-switching vlan members vlan-101
+set interfaces me0 unit 0 family inet address 172.30.108.110/24
+set interfaces vlan unit 0 family inet address 172.30.108.14/24
+set interfaces vlan unit 109 family inet address 172.30.109.14/24
+set interfaces vlan unit 171 family inet address 10.0.1.14/24
+set interfaces vlan unit 172 family inet address 10.0.2.14/24
+set interfaces vlan unit 173 family inet address 10.10.173.12/24
+set interfaces vlan unit 201 family inet address 1.1.1.254/24
+set interfaces vlan unit 202 family inet address 2.2.2.254/24
+---(more 61%)---[]---
+                                                                               
+set snmp community public authorization read-only
+set routing-options static route 172.26.0.0/16 next-hop 172.30.108.1
+set routing-options static route 0.0.0.0/0 next-hop 172.30.108.1
+set routing-options static route 10.0.2.0/24 next-hop 10.0.1.1
+set routing-options static route 10.10.172.0/24 next-hop 10.10.173.1
+deactivate protocols rstp
+set protocols lldp port-id-subtype interface-name
+set protocols lldp interface all
+set protocols lldp interface vme.0
+set protocols lldp-med interface all
+set ethernet-switching-options storm-control interface all level 50
+set vlans Vlan-3333 description "VLAN de test"
+set vlans Vlan-3333 vlan-id 3333
+set vlans default l3-interface vlan.0
+set vlans vlan-1001 vlan-id 1001
+set vlans vlan-1002 vlan-id 1002
+set vlans vlan-1003 vlan-id 1003
+set vlans vlan-1004 vlan-id 1004
+set vlans vlan-1005 vlan-id 1005
+set vlans vlan-101 vlan-id 101
+set vlans vlan-102 vlan-id 102
+set vlans vlan-103 vlan-id 103
+set vlans vlan-104 vlan-id 104
+---(more 82%)---[]---
+                                                                               
+set vlans vlan-109 description "Profile created as part of device discovery"
+set vlans vlan-109 vlan-id 109
+set vlans vlan-109 l3-interface vlan.109
+set vlans vlan-110 description "Vlan 172.30.110.0/24"
+set vlans vlan-110 vlan-id 110
+set vlans vlan-111 description "Vlan 172.30.111.0/24"
+set vlans vlan-111 vlan-id 111
+set vlans vlan-1111 vlan-id 1111
+set vlans vlan-150 vlan-id 150
+set vlans vlan-172
+set vlans vlan-173
+set vlans vlan-175
+set vlans vlan-2001 vlan-id 2001
+set vlans vlan-2002 vlan-id 2002
+set vlans vlan-201 vlan-id 201
+set vlans vlan-201 l3-interface vlan.201
+set vlans vlan-202 vlan-id 202
+set vlans vlan-202 l3-interface vlan.202
+set vlans vlan-3001 vlan-id 3001
+set vlans vlan-3002 vlan-id 3002
+set vlans vlan-SRXHA-ControlLink vlan-id 1997
+set vlans vlan-SRXHA-ControlLink interface ge-0/1/1.0
+set vlans vlan-SRXHA-FabricLink vlan-id 1996
+---(more 92%)---[]---
+                                                                               
+set vlans vlan-SRXHA-FabricLink interface ge-0/0/22.0
+set vlans vlan-SRXHA-FabricLink interface ge-0/0/23.0
+set vlans vlan-rewrite-177 vlan-id 177
+set vlans vlan-rewrite-178 vlan-id 178
+set vlans vlan-rewrite-179 vlan-id 179
+set vlans vlan-rewrite-180 vlan-id 180
+set vlans vlan-roma-1068 description "Vlan Site-Roma"
+set vlans vlan-roma-1068 vlan-id 1068
+set vlans vlan-workshop-171 vlan-id 171
+set vlans vlan-workshop-171 l3-interface vlan.171
+set vlans vlan-workshop-172 vlan-id 172
+set vlans vlan-workshop-172 l3-interface vlan.172
+set vlans vlan-workshop-173 vlan-id 173
+set vlans vlan-workshop-173 l3-interface vlan.173
+set vlans vlan-workshop-174 vlan-id 174
+set vlans vlan-workshop-175 vlan-id 175
+set vlans vlan10 vlan-id 10
+set vlans vlan20 vlan-id 20
+
+{master:0}
+admin@FR-EX2200-110> 
