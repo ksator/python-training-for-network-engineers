@@ -8,7 +8,7 @@ show route protocol isis 10.0.15.0/24 active-path | display xml rpc
 You can fetch the RPC for the show system users CLI command with display_xml_rpc()    
 
 \>>> r0.display_xml_rpc('show system users')  
-<Element get-system-users-information at 0x7fa22b1294d0>  
+\<Element get-system-users-information at 0x7fa22b1294d0>  
 
 #RPC responses:  
 
@@ -31,11 +31,11 @@ This recipe can be used to discover the RPC name for any Junos CLI command, but 
 Passing the response from the display_xml_rpc() method to the etree.dump() function displays the full XML response (including RPC parameters):  
 \>>> from lxml import etree  
 \>>> etree.dump(r0.display_xml_rpc('show route protocol isis 10.0.15.0/24 active-path'))  
-<get-route-information>  
-<destination>10.0.15.0/24</destination>  
-<active-path/>  
-<protocol>isis</protocol>  
-</get-route-information>  
+\<get-route-information>  
+\<destination>10.0.15.0/24</destination>  
+\<active-path/>  
+\<protocol>isis</protocol>  
+\</get-route-information>  
 
 #rpc on demand  
 
