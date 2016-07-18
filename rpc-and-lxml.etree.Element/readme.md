@@ -129,14 +129,14 @@ print etree.tostring(rsp)
 \<configuration-information>  
 \<configuration-output>  
 [edit services analytics resource]    
-\+   interfaces {    
-\+     ge-1/0/0 {    
-\+       resource-profile default_resource_profile;  
-\+     }  
-\+     ge-1/0/1 {    
-\+       resource-profile default_resource_profile;    
-\+    }
-\+   }  
+\+...interfaces {    
+\+.....ge-1/0/0 {    
+\+.......resource-profile default_resource_profile;  
+\+.....}  
+\+.....ge-1/0/1 {    
+\+.......resource-profile default_resource_profile;    
+\+.....}    
+\+...}    
 
 
 
