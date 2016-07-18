@@ -125,7 +125,7 @@ dev.open()
 rsp = dev.rpc.get_configuration(dict(compare='rollback', rollback='0', format='xml'))  
 print etree.tostring(rsp)  
 
->>> print etree.tostring(rsp)  
+\>>> print etree.tostring(rsp)  
 \<configuration-information>  
 \<configuration-output>  
 [edit services analytics resource]    
