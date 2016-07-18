@@ -69,8 +69,8 @@ Element objects, which form a tree representing the parsed XML response.
 For debugging purposes, the lxml.etree.dump() function can be used to dump the XML text of the response (albeit without the pretty formatting of the Junos CLI):  
 \>>> from lxml import etree  
 \>>> etree.dump(response)  
-<system-users-information>  
-<uptime-information>  
+\<system-users-information>  
+\<uptime-information>  
 ...ouput trimmed...  
 </uptime-information>  
 </system-users-information>  
@@ -110,7 +110,7 @@ print etree.tostring(cnf)
 Device(172.30.179.101)  
 \>>> rsp=dev.rpc.get_configuration()  
 \>>> type(rsp)  
-<type 'lxml.etree._Element'>  
+\<type 'lxml.etree._Element'>  
 >>> from lxml import etree  
 \>>> etree.dump(rsp)  
 ...
@@ -127,8 +127,8 @@ rsp = dev.rpc.get_configuration(dict(compare='rollback', rollback='0', format='x
 print etree.tostring(rsp)  
 
 \>>> print etree.tostring(rsp)  
-<configuration-information>  
-<configuration-output>  
+\<configuration-information>  
+\<configuration-output>  
 [edit services analytics resource]  
 +     interfaces {  
 +         ge-1/0/0 {  
@@ -163,13 +163,13 @@ print cnf.text
 find(), findall(),  findtext()   
 
 user@r0> show system users | display xml  
-<rpc-reply xmlns:junos="http://xml.juniper.net/junos/15.1R1/junos">  
- <system-users-information xmlns="http://xml.juniper.net/junos/15.1R1/junos">  
-  <uptime-information>  
-   <date-time junos:seconds="1436915514">4:11PM</date-time>  
-   <up-time junos:seconds="116940">1 day, 8:29</up-time>  
-   <active-user-count junos:format="4 users">4</active-user-count>  
-   <load-average-1>0.56</load-average-1>  
+\<rpc-reply xmlns:junos="http://xml.juniper.net/junos/15.1R1/junos">  
+ \<system-users-information xmlns="http://xml.juniper.net/junos/15.1R1/junos">  
+  \<uptime-information>  
+   \<date-time junos:seconds="1436915514">4:11PM</date-time>  
+   \<up-time junos:seconds="116940">1 day, 8:29</up-time>  
+   \<active-user-count junos:format="4 users">4</active-user-count>  
+   \<load-average-1>0.56</load-average-1>  
 ...  
   
 \>>> response = r0.rpc.get_system_users_information(normalize=True)  
