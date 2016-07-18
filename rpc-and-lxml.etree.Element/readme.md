@@ -15,13 +15,13 @@ You can fetch the RPC for the show system users CLI command with display_xml_rpc
 ##lxml.etree.Element  
 By default, all PyEZ RPC responses are returned as an lxml.etree.Element object.  
 
-##tag  
+###tag  
 You can view the actual RPC name by invoking the tag property on this response object  
 \>>> from lxml import etree  
 \>>> r0.display_xml_rpc('show system users').tag  
 'get-system-users-information'  
 
-##replace  
+###replace  
 You can take this one step further by using the built in replace() string method to substitute hyphens with underscores:  
 \>>> r0.display_xml_rpc('show system users').tag.replace('-','_')  
 'get_system_users_information'  
