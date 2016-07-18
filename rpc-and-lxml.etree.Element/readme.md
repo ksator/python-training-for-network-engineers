@@ -126,16 +126,16 @@ rsp = dev.rpc.get_configuration(dict(compare='rollback', rollback='0', format='x
 print etree.tostring(rsp)  
 
 >>> print etree.tostring(rsp)  
-<configuration-information>  
-<configuration-output>  
-[edit services analytics resource]  
-+...interfaces {  
-+.....ge-1/0/0 {  
-+.......resource-profile default_resource_profile;  
-+.....} 
-+.....ge-1/0/1 {  
-+.......resource-profile default_resource_profile;  
-+.....}  
+\<configuration-information>  
+\<configuration-output>  
+[edit services analytics resource]    
+\+...interfaces {    
+\+.....ge-1/0/0 {    
+\+.......resource-profile default_resource_profile;  
+\+.....}  
+\+.....ge-1/0/1 {    
+\+.......resource-profile default_resource_profile;    
+\+.....}  
 
 
 ## In set format  
