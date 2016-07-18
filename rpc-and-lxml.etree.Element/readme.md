@@ -125,17 +125,6 @@ dev.open()
 rsp = dev.rpc.get_configuration(dict(compare='rollback', rollback='0', format='xml'))  
 print etree.tostring(rsp)  
 
-\>>> print etree.tostring(rsp)  
-\<configuration-information>  
-\<configuration-output>  
-[edit services analytics resource]
-- \+     interfaces {
--\+         ge-1/0/0 {
-*\+             resource-profile default_resource_profile;
--\+         }
-....
-  
-
 ## In set format  
 
 Requirement: junos 15.1 or above  
@@ -198,4 +187,5 @@ Response normalization is disabled by default
 \>>> response = r0.rpc.get_system_users_information(normalize=True)  
 \>>> response.findtext("uptime-information/up-time")  
 '4 days, 17 mins'  
+
 Notice the newline characters at the beginning and end of the value have been removed  
