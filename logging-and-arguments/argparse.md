@@ -18,7 +18,8 @@ import argparse
 parser = argparse.ArgumentParser()  
 parser.add_argument("echo", help="echo the string you use here")  
 args = parser.parse_args()  
-print args.echo  
+print args.echo 
+
 And we get:  
 $ python prog.py -h  
 usage: prog.py [-h] echo  
@@ -37,6 +38,7 @@ parser.add_argument("--verbose", help="increase output verbosity",action="store_
 args = parser.parse_args()  
 if args.verbose:  
    print "verbosity turned on"  
+   
 And the output:  
 $ python prog.py --verbose  
 verbosity turned on  
@@ -59,6 +61,7 @@ parser.add_argument("-v", "--verbose", help="increase output verbosity", action=
 args = parser.parse_args()  
 if args.verbose:  
     print "verbosity turned on"  
+
 And here goes:  
 $ python prog.py -v  
 verbosity turned on  
