@@ -57,11 +57,10 @@ New features are added to each platform with each Junos release and the existing
 \>>> bgp_routes = r0.rpc.get_route_information(dev_timeout = 180, protocol='bgp')  
 
 #RPC Responses  
-user@r0> show system users | display xml  
+
 PyEZ responses is an lxml.etree.Element  
 \>>> response = r0.rpc.get_system_users_information(normalize=True)  
-\>>> etree.dump(r0.rpc.get_system_users_information())  
-…  
+
 Each lxml.etree.Element object has links to parent, child, and sibling lxml.etree.   
 Element objects, which form a tree representing the parsed XML response.    
 
