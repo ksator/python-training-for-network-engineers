@@ -129,19 +129,19 @@ print etree.tostring(rsp)
 \<configuration-information>  
 \<configuration-output>  
 [edit services analytics resource]  
-+     interfaces {  
-+         ge-1/0/0 {  
-+             resource-profile default_resource_profile;  
-+         }  
-+         ge-1/0/1 {  
-+             resource-profile default_resource_profile;  
-+         }  
-+         ge-1/0/2 {  
-+             resource-profile default_resource_profile;  
-+         }  
-+         ge-1/0/3 {  
-+             resource-profile default_resource_profile;  
-+         }  
+\+     interfaces {  
+\+         ge-1/0/0 {  
+\+             resource-profile default_resource_profile;  
+\+         }  
+\+         ge-1/0/1 {  
+\+             resource-profile default_resource_profile;  
+\+         }  
+\+         ge-1/0/2 {  
+\+             resource-profile default_resource_profile;  
+\+         }  
+\+         ge-1/0/3 {  
+\+             resource-profile default_resource_profile;  
+\+         }  
 ....  
 
 ## In set format  
@@ -163,12 +163,12 @@ find(), findall(),  findtext()
 
 user@r0> show system users | display xml  
 \<rpc-reply xmlns:junos="http://xml.juniper.net/junos/15.1R1/junos">  
- \<system-users-information xmlns="http://xml.juniper.net/junos/15.1R1/junos">  
-  \<uptime-information>  
-   \<date-time junos:seconds="1436915514">4:11PM</date-time>  
-   \<up-time junos:seconds="116940">1 day, 8:29</up-time>  
-   \<active-user-count junos:format="4 users">4</active-user-count>  
-   \<load-average-1>0.56</load-average-1>  
+\ <system-users-information xmlns="http://xml.juniper.net/junos/15.1R1/junos">  
+\  <uptime-information>  
+\   <date-time junos:seconds="1436915514">4:11PM</date-time>  
+\   <up-time junos:seconds="116940">1 day, 8:29</up-time>  
+\    <active-user-count junos:format="4 users">4</active-user-count>  
+\    <load-average-1>0.56</load-average-1>  
 ...  
   
 \>>> response = r0.rpc.get_system_users_information(normalize=True)  
