@@ -72,8 +72,8 @@ For debugging purposes, the lxml.etree.dump() function can be used to dump the X
 \<system-users-information>  
 \<uptime-information>  
 ...ouput trimmed...  
-</uptime-information>  
-</system-users-information>  
+\</uptime-information>  
+\</system-users-information>  
 \>>>  
 
 #convert  lxml.etree.Element object to string (with etree.tostring)   
