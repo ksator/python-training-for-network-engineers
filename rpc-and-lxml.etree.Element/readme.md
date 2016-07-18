@@ -110,7 +110,7 @@ Device(172.30.179.101)
 \>>> rsp=dev.rpc.get_configuration()  
 \>>> type(rsp)  
 \<type 'lxml.etree._Element'>  
->>> from lxml import etree  
+\>>> from lxml import etree  
 \>>> etree.dump(rsp)  
 ...
 \>>> print etree.tostring(rsp)  
