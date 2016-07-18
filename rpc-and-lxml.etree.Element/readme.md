@@ -155,8 +155,17 @@ print cnf.text
 
 #Using XPath with lxml  
 
+user@r0> show system users | display xml rpc  
+
 user@r0> show system users | display xml  
-user@r0> show system users | display xml rpc
+\<rpc-reply xmlns:junos="http://xml.juniper.net/junos/15.1R1/junos">  
+.\<system-users-information xmlns="http://xml.juniper.net/junos/15.1R1/junos">  
+..\<uptime-information>  
+...\<date-time junos:seconds="1436915514">4:11PM</date-time>  
+...\<up-time junos:seconds="116940">1 day, 8:29</up-time>  
+...\<active-user-count junos:format="4 users">4</active-user-count>  
+...\<load-average-1>0.56</load-average-1>  
+...  
 
 \>>> response = r0.rpc.get_system_users_information(normalize=True)  
 
