@@ -21,3 +21,8 @@ VARIABLES DEFINITION WITH YAML
 JUNOS AUTOMATION WITH PYEZ LIBRARY  
 REST CALLS HANDLING  
 
+There are additionnal content in network automation workshop.pdf (ansible, git, continious integration, vagrant, and a quiz).  
+
+
+
+
