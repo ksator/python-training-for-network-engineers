@@ -119,6 +119,54 @@ qwerty
 </root>
 ```
 
+### findtext, find, findall 
+
+###### findtext function returns the text for the matching subelement
+```
+>>> etree.dump(root)
+<root>
+  <child1/>
+  <child2/>
+  <child3/>
+  <another>zxcvb</another>
+</root>
+>>> root.findtext('another')
+'zxcvb'
+>>> 
+```
+###### find function returns a subelement
+```
+>>> root.find('another')
+<Element another at 0x7f9401e82710>
+>>> root.find('another').text
+'zxcvb'
+>>> 
+```
+
+###### findall function returns a list of subelements
+```
+>>> etree.SubElement(root, "another").text = "advcrwvc"
+>>> etree.SubElement(root, "another").text = "vfet"
+>>> etree.dump(root)
+<root>
+  <child1/>
+  <child2/>
+  <child3/>
+  <another>zxcvb</another>
+  <another>advcrwvc</another>
+  <another>vfet</another>
+</root>
+>>> root.findall('another')
+[<Element another at 0x7f93feef5c20>, <Element another at 0x7f93feef57e8>, <Element another at 0x7f93fede65f0>]
+>>> for item in root.findall('another'):
+...  print item.text
+... 
+zxcvb
+advcrwvc
+vfet
+>>>
+```
+
 ### builder module 
 
 ####### Import the class E (aka ElementMaker) from the module lxml.builder
@@ -151,50 +199,3 @@ qwerty
 </get>
 ```
 
-### findtext, find, findall 
-
-###### findtext function returns the text for the matching subelement
-```
->>> etree.dump(root)
-<root>
-  <child1/>
-  <child2/>
-  <child3/>
-  <another>zxcvb</another>
-</root>
->>> root.findtext('another')
-'zxcvb'
->>> 
-```
-####### find function returns a subelement
-```
->>> root.find('another')
-<Element another at 0x7f9401e82710>
->>> root.find('another').text
-'zxcvb'
->>> 
-```
-
-####### findall function returns a list of subelements
-```
->>> etree.SubElement(root, "another").text = "advcrwvc"
->>> etree.SubElement(root, "another").text = "vfet"
->>> etree.dump(root)
-<root>
-  <child1/>
-  <child2/>
-  <child3/>
-  <another>zxcvb</another>
-  <another>advcrwvc</another>
-  <another>vfet</another>
-</root>
->>> root.findall('another')
-[<Element another at 0x7f93feef5c20>, <Element another at 0x7f93feef57e8>, <Element another at 0x7f93fede65f0>]
->>> for item in root.findall('another'):
-...  print item.text
-... 
-zxcvb
-advcrwvc
-vfet
->>>
-```
