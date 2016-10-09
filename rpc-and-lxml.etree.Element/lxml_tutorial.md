@@ -169,7 +169,7 @@ vfet
 
 ### builder module 
 
-####### Import the class E (aka ElementMaker) from the module lxml.builder
+###### Import the class E (aka ElementMaker) from the module lxml.builder
 ```
 >>> from lxml.builder import E
 ```
