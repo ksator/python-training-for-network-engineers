@@ -2,12 +2,12 @@
 
 ### etree module 
 
-##### import the etree module from the the lxml package 
+###### import the etree module from the the lxml package 
 ```
 >>> from lxml import etree
 ```
 
-##### Call the Element class
+###### Call the Element class
 ```
 >>> root=etree.Element('root')
 >>> type(root)
@@ -15,14 +15,14 @@
 >>>
 ```
 
-##### The function tostring returns a string representation of an element
+###### The function tostring returns a string representation of an element
 ```
 >>> etree.tostring(root)
 '<root/>'
 >>>
 ```
 
-##### To create child elements and add them to a parent element, you can use the append() method:
+###### To create child elements and add them to a parent element, you can use the append() method:
 ```
 >>> root.append(etree.Element('child1'))
 >>> etree.tostring(root)
@@ -35,7 +35,7 @@
 >>>
 ```
 
-##### Subelement class creates an element instance, and appends it to an existing element.
+###### Subelement class creates an element instance, and appends it to an existing element.
 ```
 >>> child2 = etree.SubElement(root, "child2")
 >>> child3 = etree.SubElement(root, "child3")
@@ -47,7 +47,7 @@
 </root>
 ```
 
-##### the function dump  
+###### the function dump  
 ```
 >>> etree.dump(root)
 <root>
@@ -81,7 +81,8 @@ child3
 >>> 
 ```
 
-##### we can call getparent(), getchildren(), getprevious(), getnext() to get the parent, children, neigbbors of an element
+###### getparent(), getchildren(), getprevious(), getnext()
+we can call getparent(), getchildren(), getprevious(), getnext() to get the parent, children, neigbbors of an element
 ```
 >>> root.getchildren()
 [<Element child1 at 0x7f93feee3d40>, <Element child2 at 0x7f93feee3d88>, <Element child3 at 0x7f93feee3a28>]
@@ -93,7 +94,7 @@ child3
 <Element child3 at 0x7f93feee3a28>
 ```
 
-##### Elements can contain text:
+###### Elements can contain text:
 ```
 >>> child2.text = 'qwerty'
 >>> print child2.text
@@ -116,14 +117,15 @@ qwerty
   <child3/>
   <another>zxcvb</another>
 </root>
+```
 
 ### builder module 
 
-###### Import the class E (aka ElementMaker) from the module lxml.builder
+####### Import the class E (aka ElementMaker) from the module lxml.builder
 ```
 >>> from lxml.builder import E
 ```
-##### Call the class E 
+###### Call the class E 
 ```
 >>> rpc = E('root', E('child1'))
 >>> type(rpc)
@@ -150,7 +152,8 @@ qwerty
 ```
 
 ### findtext, find, findall 
-##### findtext function returns the text for the matching subelement
+
+###### findtext function returns the text for the matching subelement
 ```
 >>> etree.dump(root)
 <root>
@@ -163,7 +166,7 @@ qwerty
 'zxcvb'
 >>> 
 ```
-###### find function returns a subelement
+####### find function returns a subelement
 ```
 >>> root.find('another')
 <Element another at 0x7f9401e82710>
@@ -172,7 +175,7 @@ qwerty
 >>> 
 ```
 
-##### findall function returns a list of subelements
+####### findall function returns a list of subelements
 ```
 >>> etree.SubElement(root, "another").text = "advcrwvc"
 >>> etree.SubElement(root, "another").text = "vfet"
