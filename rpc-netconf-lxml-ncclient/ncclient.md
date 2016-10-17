@@ -109,9 +109,7 @@ criteria4='''
 print dev.get_config(source="running", filter=("subtree", criteria4))
 ```
 
-## Update configuration 
-
-#### Update the candidate configuration, and commit
+## Update the candidate configuration, and commit
 ```
 print 'locking configuration'
 dev.lock('candidate')
@@ -120,6 +118,9 @@ dev.edit_config(target='candidate', config=snippet)
 dev.commit()
 dev.unlock('candidate')
 ```
+
+## Revert the candidate configuration to the currently running configuration.
+
 #### Update the candidat configuration 
 ```
 snippet='''<config><configuration><system><host-name operation="replace">anothername</host-name></system></configuration></config>'''
