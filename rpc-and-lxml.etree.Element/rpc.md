@@ -1,7 +1,7 @@
 #RPC discovery method   
 
 ##Using cli   
-Use | display xml rpc  
+Use "| display xml rpc"  
 ```
 show route protocol isis 10.0.15.0/24 active-path | display xml rpc  
 ```
