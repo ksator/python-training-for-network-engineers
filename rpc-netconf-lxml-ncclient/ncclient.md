@@ -5,8 +5,10 @@ PyPI (Python Package Index) https://pypi.python.org/pypi/ncclient
 
 ## Connect to a device
 ```
-from ncclient import manager
-dev=manager.connect(host="ex4200-10", port=830, username="pytraining", password="Poclab123", hostkey_verify=False)
+>>> from ncclient import manager
+>>> dev=manager.connect(host="ex4200-10", port=830, username="pytraining", password="Poclab123", hostkey_verify=False)
+>>> dev.connected
+True
 ```
 
 ## NetConf capabilities
