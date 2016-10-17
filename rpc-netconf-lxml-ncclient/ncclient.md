@@ -57,19 +57,21 @@ urn:ietf:params:netconf:capability:interleave:1.0
 >>>
 ```
 
-## backup the active configuration on your labtop
+## get_config 
+
+#### backup the active configuration on your labtop
 ```
 f=open ("config", 'w')
 f.write(str(dev.get_config(source='running')))
 f.close()
 ```
 
-## print the candidate configuration
+#### print the candidate configuration
 ```
 print dev.get_config(source="candidate")
 ```
 
-## use a subtree filter to get only interfaces configuration from the active configuration
+#### use a subtree filter to get only interfaces configuration from the active configuration
 These 4 examples provide the same output:  
 ```
 criteria='''
