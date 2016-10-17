@@ -158,13 +158,12 @@ print etree.tostring(rsp)
 +.......resource-profile default_resource_profile;    
 +.....}    
 +...}    
-
-
+```
 
 ## In set format  
 
 Requirement: junos 15.1 or above  
-
+```
 from jnpr.junos import Device  
 from lxml import etree  
 dev=Device(host="172.30.177.170", user=pytraining, password=Poclab123)    
@@ -173,50 +172,57 @@ cnf = dev.rpc.get_configuration(dict(format="set"))
 type(cnf)  
 cnf.text  
 print cnf.text  
+```
 
 #Using XPath with lxml  
 
+```
 user@r0> show system users | display xml rpc  
-
+```
+```
 user@r0> show system users | display xml  
-\<rpc-reply xmlns:junos="http://xml.juniper.net/junos/15.1R1/junos">  
-.\<system-users-information xmlns="http://xml.juniper.net/junos/15.1R1/junos">  
-..\<uptime-information>  
-...\<date-time junos:seconds="1436915514">4:11PM\</date-time>  
-...\<up-time junos:seconds="116940">1 day, 8:29\</up-time>  
-...\<active-user-count junos:format="4 users">4\</active-user-count>  
-...\<load-average-1>0.56\</load-average-1>  
+<rpc-reply xmlns:junos="http://xml.juniper.net/junos/15.1R1/junos">  
+.<system-users-information xmlns="http://xml.juniper.net/junos/15.1R1/junos">  
+..<uptime-information>  
+...<date-time junos:seconds="1436915514">4:11PM\</date-time>  
+...<up-time junos:seconds="116940">1 day, 8:29\</up-time>  
+...<active-user-count junos:format="4 users">4\</active-user-count>  
+...<load-average-1>0.56\</load-average-1>  
 ...  
-
-\>>> response = r0.rpc.get_system_users_information(normalize=True)  
-
+```
+```
+>>> response = r0.rpc.get_system_users_information(normalize=True)  
+```
 ##findtext()  
 
 findtext()  method returns a string  
-\>>> response.findtext("uptime-information/up-time")  
+```
+>>> response.findtext("uptime-information/up-time")  
 '1 day, 8:29'  
-
+```
 The <up-time> element also contains a seconds attribute that provides the system’s uptime in seconds since the system booted  
 
 ##find() 
 
 While the findtext() method returns a string, the find() method returns an lxml.etree.Element object.  
 The XML attributes of that lxml.etree.Element object can then be accessed using the attrib dictionary  
-\>>> response.find("uptime-information/up-time").attrib['seconds']  
+```
+>>> response.find("uptime-information/up-time").attrib['seconds']  
 '116940'  
-
+```
 ##findall()  
 The findall() method returns a list of lxml.etree.Element objects matching an XPath  
-\>>> users = response.findall("uptime-information/user-table/user-entry/user")  
-\>>> for user in users:  
+```
+>>> users = response.findall("uptime-information/user-table/user-entry/user")  
+>>> for user in users:  
 ... print user.text  
 ...  
 root  
 foo  
 bar  
 user  
-\>>>  
-
+>>>  
+```
 The result of this example is a list of usernames for all users currently logged into the Junos device.  
 
 ##Response Normalization  
@@ -225,12 +231,15 @@ alter the XML content returned from an RPC method
 When response normalization is enabled, all whitespace characters at the beginning and end of each XML element’s value are removed.   
 Response normalization is disabled by default  
 
-\>>> response = r0.rpc.get_system_users_information()  
-\>>> response.findtext("uptime-information/up-time")  
+```
+>>> response = r0.rpc.get_system_users_information()  
+>>> response.findtext("uptime-information/up-time")  
 '\n4 days, 17 mins\n'  
-
-\>>> response = r0.rpc.get_system_users_information(normalize=True)  
-\>>> response.findtext("uptime-information/up-time")  
+```
+```
+>>> response = r0.rpc.get_system_users_information(normalize=True)  
+>>> response.findtext("uptime-information/up-time")  
 '4 days, 17 mins'  
+```
 
 Notice the newline characters at the beginning and end of the value have been removed  
