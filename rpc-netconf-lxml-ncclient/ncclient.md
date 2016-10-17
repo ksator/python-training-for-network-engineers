@@ -9,7 +9,9 @@ from ncclient import manager
 dev=manager.connect(host="ex4200-10", port=830, username="pytraining", password="Poclab123", hostkey_verify=False)
 ```
 
-## print NetConf server capabilities 
+## NetConf capabilities
+
+#### print NetConf server capabilities 
 ```
 >>> for item in dev.server_capabilities:
 ...   print item
@@ -28,8 +30,15 @@ urn:ietf:params:xml:ns:netconf:capability:url:1.0?protocol=http,ftp,file
 urn:ietf:params:xml:ns:netconf:base:1.0
 >>>
 ```
+#### check if the server advertised some NetConf capabilities
+```
+>>> assert(":validate" in dev.server_capabilities), "NetConf server did not advertise the capability :validate"
+>>> assert(":candidate" in dev.server_capabilities), "NetConf server did not advertise the capability :candidate"
+>>> assert(":confirmed-commit" in dev.server_capabilities), "NetConf server did not advertise the capability :confirmed-commit"
+>>>
+```
 
-## print NetConf client capabilities 
+#### print NetConf client capabilities 
 ```
 >>> for item in dev.client_capabilities:
 ...  print item
@@ -47,6 +56,14 @@ urn:ietf:params:netconf:capability:startup:1.0
 urn:ietf:params:netconf:capability:interleave:1.0
 >>>
 ```
+
+## backup the active configuration on your labtop
+```
+f=open ("config", 'w')
+f.write(str(dev.get_config(source='running')))
+f.close()
+```
+
 
 
 
