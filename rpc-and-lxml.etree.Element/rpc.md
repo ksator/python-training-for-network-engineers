@@ -1,30 +1,30 @@
 ##RPC discovery method   
 
-###Using cli   
-Use "| display xml rpc"  
+####Using cli   
+Use **| display xml rpc** 
 ```
 show route protocol isis 10.0.15.0/24 active-path | display xml rpc  
 ```
 
-###Using rpc  
-You can fetch the RPC for the "show system users" CLI command with "display_xml_rpc()"    
+####Using rpc  
+You can fetch the RPC for the "show system users" CLI command with **display_xml_rpc()**    
 ```
 >>> r0.display_xml_rpc('show system users')  
 <Element get-system-users-information at 0x7fa22b1294d0>  
 ```
 ##RPC responses:  
 
-###lxml.etree.Element  
+####lxml.etree.Element  
 By default, all PyEZ RPC responses are returned as an lxml.etree.Element object.  
 
-####tag  
+#####tag  
 You can view the actual RPC name by invoking the tag property on this response object  
 ```
 >>> from lxml import etree  
 >>> r0.display_xml_rpc('show system users').tag  
 'get-system-users-information'  
 ```
-####replace  
+#####replace  
 You can take this one step further by using the built in replace() string method to substitute hyphens with underscores:  
 ```
 >>> r0.display_xml_rpc('show system users').tag.replace('-','_')  
@@ -51,10 +51,12 @@ New features are added to each platform with each Junos release and the existing
 >>> isis_route = r0.rpc.get_route_information(protocol='isis', destination='10.0.15.0/24', active_path=True)  
 ```
 
-##rpc default timeout   
+##rpc timeout   
+
+#####rpc default timeout  
 30s  
 
-###first method to change the timeout (for all rpc)  
+####first method to change the timeout (for all rpc)  
 ```
 >>> r0.timeout  
 30  
@@ -62,7 +64,7 @@ New features are added to each platform with each Junos release and the existing
 >>> r0.timeout  
 10  
 ```
-###second method (only for one rpc)  
+####second method (only for one rpc)  
 ```
 >>> bgp_routes = r0.rpc.get_route_information(dev_timeout = 180, protocol='bgp')  
 ```
@@ -75,7 +77,7 @@ PyEZ responses is an lxml.etree.Element
 Each lxml.etree.Element object has links to parent, child, and sibling lxml.etree.   
 Element objects, which form a tree representing the parsed XML response.    
 
-###lxml.etree.dump()  
+####lxml.etree.dump()  
 For debugging purposes, the lxml.etree.dump() function can be used to dump the XML text of the response (albeit without the pretty formatting of the Junos CLI):  
 ```
 >>> from lxml import etree  
@@ -89,7 +91,7 @@ For debugging purposes, the lxml.etree.dump() function can be used to dump the X
 ```
 ##convert lxml.etree.Element object to string (with etree.tostring)   
 
-###Rpc call  
+####Rpc call  
 
 https://github.com/vnitinv/pyez-examples/blob/master/2_rpc_call.py  
 
@@ -104,7 +106,7 @@ print (etree.tostring(op))
 dev.close()  
 ```
 
-###get_config in xml  
+####get_config in xml  
 
 https://github.com/vnitinv/pyez-examples/blob/master/10_get_config.py  
 
@@ -117,7 +119,7 @@ cnf = dev.rpc.get_config()
 print etree.tostring(cnf)  
 ```
 
-#### example:    
+##### example:    
 
 ```
 >>> from jnpr.junos import Device  
@@ -134,7 +136,7 @@ Device(172.30.179.101)
 ...  
 ```
 
-###Print diff with rollback id  
+####Print diff with rollback id  
 
 ```
 from jnpr.junos import Device     
@@ -160,7 +162,7 @@ print etree.tostring(rsp)
 +...}    
 ```
 
-### In set format  
+#### In set format  
 
 Requirement: junos 15.1 or above  
 ```
@@ -193,7 +195,7 @@ user@r0> show system users | display xml
 ```
 >>> response = r0.rpc.get_system_users_information(normalize=True)  
 ```
-###findtext()  
+####findtext()  
 
 findtext()  method returns a string  
 ```
@@ -202,7 +204,7 @@ findtext()  method returns a string
 ```
 The <up-time> element also contains a seconds attribute that provides the system’s uptime in seconds since the system booted  
 
-###find() 
+####find() 
 
 While the findtext() method returns a string, the find() method returns an lxml.etree.Element object.  
 The XML attributes of that lxml.etree.Element object can then be accessed using the attrib dictionary  
@@ -210,7 +212,7 @@ The XML attributes of that lxml.etree.Element object can then be accessed using 
 >>> response.find("uptime-information/up-time").attrib['seconds']  
 '116940'  
 ```
-##findall()  
+####findall()  
 The findall() method returns a list of lxml.etree.Element objects matching an XPath  
 ```
 >>> users = response.findall("uptime-information/user-table/user-entry/user")  
