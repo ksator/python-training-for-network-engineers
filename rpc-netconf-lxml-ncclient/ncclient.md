@@ -171,6 +171,50 @@ Any uncommitted changes are discarded.
 >>>
 ```
 
+## lxml 
+
+```
+>>> from lxml import etree
+>>> config_e = etree.Element("config")
+>>> configuration_e = etree.SubElement(config_e, "configuration")
+>>> system_e = etree.SubElement(configuration_e, "system")
+>>> name_server_e = etree.SubElement(system_e, "name-server")
+>>> name_server_e.text = '8.8.8.8'
+>>> print etree.tostring(config_e)
+<config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0"><configuration><system><name-server>8.8.8.8</name-server></system></configuration></config>
+>>>
+>>> print etree.tostring(config_e, pretty_print = True)
+<config>
+  <configuration>
+    <system>
+      <name-server>8.8.8.8</name-server>
+    </system>
+  </configuration>
+</config>
+>>>
+>>> etree.dump(config_e)
+<config>
+  <configuration>
+    <system>
+      <name-server>8.8.8.8</name-server>
+    </system>
+  </configuration>
+</config>
+>>>
+>>> name_server_e.text
+'8.8.8.8'
+>>>
+```
+```
+>>> from ncclient import manager
+>>> dev=manager.connect(host="ex4200-10", port=830, username="pytraining", password="Poclab123", hostkey_verify=False)
+>>> dev.edit_config(config=config_e, default_operation="merge", target="candidate")
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/12.3R11/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:05aef606-948c-11e6-999d-005056ab0085">
+<ok/>
+</rpc-reply>
+>>> dev.commit()
+```
+
 ## Close the NetConf session
 
 ```
