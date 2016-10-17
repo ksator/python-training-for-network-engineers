@@ -185,6 +185,12 @@ True
 False
 ```
 
+## device handlers
+if you add device_params={'name':'junos'} as an argument of the class connect, you can even better manage Junos devices. 
+Few examples:  
+- you can call the method commit with the argument comment: commit(comment="from ncclient")   
+- you can use an xpath despite Junos devive do not advertise the NetConf capability :xpath  
+
 
 
 
