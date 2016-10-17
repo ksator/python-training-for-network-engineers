@@ -64,6 +64,48 @@ f.write(str(dev.get_config(source='running')))
 f.close()
 ```
 
+## print the candidate configuration
+```
+print dev.get_config(source="candidate")
+```
+
+## use a subtree filter to get only interfaces configuration from the active configuration
+These 4 examples provide the same output:  
+```
+criteria='''
+<configuration>
+	<interfaces>
+	</interfaces>
+</configuration>
+'''
+print dev.get_config(source="running", filter=("subtree", criteria))
+```
+```
+criteria2='''
+<configuration>
+	<interfaces>
+</configuration>
+'''
+print dev.get_config(source="running", filter=("subtree", criteria2))
+```
+```
+criteria3='''
+<configuration>
+	</interfaces>
+</configuration>
+'''
+print dev.get_config(source="running", filter=("subtree", criteria3))
+```
+```
+criteria4='''
+<configuration>
+	<interfaces/>
+</configuration>
+'''
+print dev.get_config(source="running", filter=("subtree", criteria4))
+```
+
+
 
 
 
