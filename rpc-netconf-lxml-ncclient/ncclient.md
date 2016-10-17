@@ -109,8 +109,66 @@ criteria4='''
 print dev.get_config(source="running", filter=("subtree", criteria4))
 ```
 
-
 ## Update configuration 
+
+#### Update the candidate configuration, and commit
+```
+print 'locking configuration'
+dev.lock('candidate')
+snippet='''<config><configuration><system><host-name operation="replace">newname</host-name></system></configuration></config>'''
+dev.edit_config(target='candidate', config=snippet)
+dev.commit()
+dev.unlock('candidate')
+```
+#### Update the candidat configuration 
+```
+snippet='''<config><configuration><system><host-name operation="replace">anothername</host-name></system></configuration></config>'''
+dev.edit_config(target='candidate', config=snippet)
+```
+
+###### Get the candidate configuration  
+```
+>>> criteria='''
+... <configuration>
+...   <system>
+...     <host-name>
+...   </system>
+... </configuration>
+... '''
+>>> print dev.get_config(source="candidate", filter=("subtree", criteria))
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/12.3R11/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:87796708-9463-11e6-a102-005056ab0085">
+<data>
+<configuration xmlns="http://xml.juniper.net/xnm/1.1/xnm" junos:changed-seconds="1476706420" junos:changed-localtime="2016-10-17 14:13:40 CEST">
+    <system>
+        <host-name>anothername</host-name>
+    </system>
+</configuration>
+</data>
+</rpc-reply>
+```
+
+###### Revert the candidate configuration to the currently running configuration.
+Any uncommitted changes are discarded.
+```
+>>> dev.discard_changes()
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/12.3R11/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:aa089de8-9463-11e6-a102-005056ab0085">
+<ok/>
+</rpc-reply>
+```
+###### Check the candidate configuration 
+```
+>>> print dev.get_config(source="candidate", filter=("subtree", criteria))
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/12.3R11/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:abe8fa9a-9463-11e6-a102-005056ab0085">
+<data>
+<configuration xmlns="http://xml.juniper.net/xnm/1.1/xnm" junos:changed-seconds="1476706602" junos:changed-localtime="2016-10-17 14:16:42 CEST">
+    <system>
+        <host-name>ex4200-10</host-name>
+    </system>
+</configuration>
+</data>
+</rpc-reply>
+>>>
+```
 
 ## Close the NetConf session
 
