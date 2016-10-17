@@ -7,7 +7,7 @@ show route protocol isis 10.0.15.0/24 active-path | display xml rpc
 ```
 
 ####Using rpc  
-You can fetch the RPC for the "show system users" CLI command with **display_xml_rpc()**    
+You can fetch the RPC for a CLI with **display_xml_rpc()**    
 ```
 >>> r0.display_xml_rpc('show system users')  
 <Element get-system-users-information at 0x7fa22b1294d0>  
