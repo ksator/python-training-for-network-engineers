@@ -189,9 +189,60 @@ False
 if you add device_params={'name':'junos'} as an argument of the class connect, you can even better manage Junos devices. 
 Few examples:  
 - you can call the method commit with the argument comment: commit(comment="from ncclient")   
-- you can use an xpath despite Junos devive do not advertise the NetConf capability :xpath  
+- you can use an xpath despite Junos device does not advertise the NetConf capability :xpath  
 
+#### Commit comment 
+```
+from ncclient import manager
+dev=manager.connect(host="ex4200-10", port=830, username="pytraining", password="Poclab123", hostkey_verify=False, device_params={'name':'junos'})
+dev.lock('candidate')
+snippet='''<config><configuration><system><host-name operation="replace">newname</host-name></system></configuration></config>'''
+dev.edit_config(target='candidate', config=snippet)
+dev.commit(comment="from ncclient")
+dev.unlock('candidate')
+```
 
+#### xpath 
+```
+ttt=dev.get()
+print ttt
+```
+```
+>>> ttt.xpath('//name-server/name')
+[<Element name at 0x7f19cc876830>, <Element name at 0x7f19cc876950>]
+>>> type(ttt.xpath('//name-server/name'))
+<type 'list'>
+>>> len(ttt.xpath('//name-server/name'))
+2
+>>> ttt.xpath('//name-server/name')[0]
+<Element name at 0x7f19cc876830>
+>>> ttt.xpath('//name-server/name')[0].text
+'172.30.179.2'
+>>> ttt.xpath('//name-server/name')[1].text
+'172.30.179.3'
+>>> for item in ttt.xpath('//name-server/name'):
+...  print item
+...
+<Element name at 0x7f5c71da0560>
+<Element name at 0x7f5c71da0518>
+
+>>> for item in ttt.xpath('//name-server/name'):
+...  print item.text
+...
+172.30.179.2
+172.30.179.3
+>>>
+
+>>> from lxml import etree
+>>> for item in ttt.xpath('//name-server/name'):
+...  print etree.tostring(item)
+...
+<name>172.30.179.2</name>
+
+<name>172.30.179.3</name>
+
+>>>
+```
 
 
 
