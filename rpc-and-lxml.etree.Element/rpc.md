@@ -12,7 +12,7 @@ You can fetch the RPC for the "show system users" CLI command with **display_xml
 >>> r0.display_xml_rpc('show system users')  
 <Element get-system-users-information at 0x7fa22b1294d0>  
 ```
-##RPC responses:  
+##RPC responses  
 
 ####lxml.etree.Element  
 By default, all PyEZ RPC responses are returned as an lxml.etree.Element object.  
