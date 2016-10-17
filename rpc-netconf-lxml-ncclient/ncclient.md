@@ -110,6 +110,23 @@ print dev.get_config(source="running", filter=("subtree", criteria4))
 ```
 
 
+## Update configuration 
+
+## Close the NetConf session
+
+```
+>>> dev.connected
+True
+>>> dev.close_session()
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/12.3R11/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:956c0756-94b0-11e6-8523-005056ab0085">
+<ok/>
+</rpc-reply>
+>>>
+>>> dev.connected
+False
+```
+
+
 
 
 
