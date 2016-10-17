@@ -19,126 +19,145 @@ By default, all PyEZ RPC responses are returned as an lxml.etree.Element object.
 
 ###tag  
 You can view the actual RPC name by invoking the tag property on this response object  
-\>>> from lxml import etree  
-\>>> r0.display_xml_rpc('show system users').tag  
+```
+>>> from lxml import etree  
+>>> r0.display_xml_rpc('show system users').tag  
 'get-system-users-information'  
-
+```
 ###replace  
 You can take this one step further by using the built in replace() string method to substitute hyphens with underscores:  
-\>>> r0.display_xml_rpc('show system users').tag.replace('-','_')  
+```
+>>> r0.display_xml_rpc('show system users').tag.replace('-','_')  
 'get_system_users_information'  
-
+```
 #Discover rpc and rpc paramters  
 This recipe can be used to discover the RPC name for any Junos CLI command, but does not provide details on an RPC’s parameters.   
 Passing the response from the display_xml_rpc() method to the etree.dump() function displays the full XML response (including RPC parameters):  
-\>>> from lxml import etree  
-\>>> etree.dump(r0.display_xml_rpc('show route protocol isis 10.0.15.0/24 active-path'))  
-\<get-route-information>  
-\<destination>10.0.15.0/24</destination>  
-\<active-path/>  
-\<protocol>isis</protocol>  
-\</get-route-information>  
+```
+>>> from lxml import etree  
+>>> etree.dump(r0.display_xml_rpc('show route protocol isis 10.0.15.0/24 active-path'))  
+<get-route-information>  
+<destination>10.0.15.0/24</destination>  
+<active-path/>  
+<protocol>isis</protocol>  
+</get-route-information>  
+```
 
 #rpc on demand  
 
 With RPC on Demand, there is no tight coupling.  
 New features are added to each platform with each Junos release and the existing version of PyEZ can instantly access those RPCs.  
-\>>> isis_route = r0.rpc.get_route_information(protocol='isis', destination='10.0.15.0/24', active_path=True)  
+```
+>>> isis_route = r0.rpc.get_route_information(protocol='isis', destination='10.0.15.0/24', active_path=True)  
+```
 
 #rpc default timeout   
 30s  
 
 ##first method to change the timeout (for all rpc)  
-\>>> r0.timeout  
+```
+>>> r0.timeout  
 30  
-\>>> r0.timeout = 10  
-\>>> r0.timeout  
+>>> r0.timeout = 10  
+>>> r0.timeout  
 10  
-
+```
 ##second method (only for one rpc)  
-\>>> bgp_routes = r0.rpc.get_route_information(dev_timeout = 180, protocol='bgp')  
-
+```
+>>> bgp_routes = r0.rpc.get_route_information(dev_timeout = 180, protocol='bgp')  
+```
 #RPC Responses  
 
 PyEZ responses is an lxml.etree.Element  
-\>>> response = r0.rpc.get_system_users_information(normalize=True)  
-
+```
+>>> response = r0.rpc.get_system_users_information(normalize=True)  
+```
 Each lxml.etree.Element object has links to parent, child, and sibling lxml.etree.   
 Element objects, which form a tree representing the parsed XML response.    
 
 ##lxml.etree.dump()  
 For debugging purposes, the lxml.etree.dump() function can be used to dump the XML text of the response (albeit without the pretty formatting of the Junos CLI):  
-\>>> from lxml import etree  
-\>>> etree.dump(response)  
-\<system-users-information>  
-\<uptime-information>  
+```
+>>> from lxml import etree  
+>>> etree.dump(response)  
+<system-users-information>  
+<uptime-information>  
 ...ouput trimmed...  
-\</uptime-information>  
-\</system-users-information>  
-\>>>  
-
+</uptime-information>  
+</system-users-information>  
+>>>  
+```
 #convert  lxml.etree.Element object to string (with etree.tostring)   
 
 ##Rpc call  
 
 https://github.com/vnitinv/pyez-examples/blob/master/2_rpc_call.py  
 
+```
 from jnpr.junos import Device  
 from lxml import etree  
 dev = Device(host='xxxx', user='demo', password='demo123', gather_facts=False)  
 dev.open()  
 op = dev.rpc.get_interface_information()  
-\#op = dev.rpc.get_interface_information(interface_name='lo0', terse=True)  
+#op = dev.rpc.get_interface_information(interface_name='lo0', terse=True)  
 print (etree.tostring(op))  
 dev.close()  
+```
 
 ##get_config in xml  
 
 https://github.com/vnitinv/pyez-examples/blob/master/10_get_config.py  
 
+```
 from jnpr.junos import Device  
 from lxml import etree  
 dev = Device(host='xxxx', user='demo', password='demo123', gather_facts=False)  
 dev.open()  
 cnf = dev.rpc.get_config()  
 print etree.tostring(cnf)  
+```
 
 ### example:    
 
-\>>> from jnpr.junos import Device  
-\>>> dev=Device(host="172.30.179.101", user="pytraining", password="Poclab123")    
-\>>> dev.open()  
+```
+>>> from jnpr.junos import Device  
+>>> dev=Device(host="172.30.179.101", user="pytraining", password="Poclab123")    
+>>> dev.open()  
 Device(172.30.179.101)  
-\>>> rsp=dev.rpc.get_configuration()  
-\>>> type(rsp)  
-\<type 'lxml.etree._Element'>  
-\>>> from lxml import etree  
-\>>> etree.dump(rsp)  
+>>> rsp=dev.rpc.get_configuration()  
+>>> type(rsp)  
+<type 'lxml.etree._Element'>  
+>>> from lxml import etree  
+>>> etree.dump(rsp)  
 ...  
-\>>> print etree.tostring(rsp)  
+>>> print etree.tostring(rsp)  
 ...  
+```
 
 ##Print diff with rollback id  
 
+```
 from jnpr.junos import Device     
 from lxml import etree  
 dev=Device(host="172.30.177.170", user=xxx, password=xxx)    
 dev.open()  
 rsp = dev.rpc.get_configuration(dict(compare='rollback', rollback='0', format='xml'))  
 print etree.tostring(rsp)  
+```
 
-\>>> print etree.tostring(rsp)  
-\<configuration-information>  
-\<configuration-output>  
+```
+>>> print etree.tostring(rsp)  
+<configuration-information>  
+<configuration-output>  
 [edit services analytics resource]    
-\+...interfaces {    
-\+.....ge-1/0/0 {    
-\+.......resource-profile default_resource_profile;  
-\+.....}  
-\+.....ge-1/0/1 {    
-\+.......resource-profile default_resource_profile;    
-\+.....}    
-\+...}    
++...interfaces {    
++.....ge-1/0/0 {    
++.......resource-profile default_resource_profile;  
++.....}  
++.....ge-1/0/1 {    
++.......resource-profile default_resource_profile;    
++.....}    
++...}    
 
 
 
