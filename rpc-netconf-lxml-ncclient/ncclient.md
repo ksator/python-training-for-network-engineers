@@ -121,13 +121,13 @@ dev.unlock('candidate')
 
 ## Revert the candidate configuration to the currently running configuration.
 
-#### Update the candidat configuration 
+#### Update the candidate configuration 
 ```
 snippet='''<config><configuration><system><host-name operation="replace">anothername</host-name></system></configuration></config>'''
 dev.edit_config(target='candidate', config=snippet)
 ```
 
-###### Get the candidate configuration  
+#### Get the candidate configuration  
 ```
 >>> criteria='''
 ... <configuration>
@@ -148,7 +148,7 @@ dev.edit_config(target='candidate', config=snippet)
 </rpc-reply>
 ```
 
-###### Revert the candidate configuration to the currently running configuration.
+#### Revert the candidate configuration to the currently running configuration.
 Any uncommitted changes are discarded.
 ```
 >>> dev.discard_changes()
@@ -156,7 +156,7 @@ Any uncommitted changes are discarded.
 <ok/>
 </rpc-reply>
 ```
-###### Check the candidate configuration 
+#### Check the candidate configuration 
 ```
 >>> print dev.get_config(source="candidate", filter=("subtree", criteria))
 <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/12.3R11/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:abe8fa9a-9463-11e6-a102-005056ab0085">
