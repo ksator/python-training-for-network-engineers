@@ -5,7 +5,7 @@ This is a hands-on training, with step-by-step instructions and many basics exam
 The course covers an introduction to Python programming, it includes also the PyEZ library to interact with JUNOS devices as well as an overview of some other Python modules to manipulate IP addresses, files, regular expressions, templates and rest calls.   
 
 ### Presentations 
-The presentations are available into this repo
+The presentations are available into this repo  
 [- **Python-for-network-engineers.pdf**](https://github.com/ksator/python-for-network-engineers/blob/master/Python-for-network-engineers.pdf)  
 [- **Python-training.pdf**](https://github.com/ksator/python-for-network-engineers/blob/master/Python-training.pdf) 
 
