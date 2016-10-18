@@ -1,11 +1,12 @@
-# Python for network enginners
-
-This course is useful to network engineers with no python programming knowledge, who wants to use python to manage junos devices.   
+# What to find in thos project
+A "Python for network enginners" course.   
+It is useful to network engineers with no python programming knowledge, who wants to use python to manage junos devices.   
 This is a hands-on training, with step-by-step instructions and many basics examples.   
 The course covers an introduction to Python programming, it includes also the PyEZ library to interact with JUNOS devices as well as an overview of some other Python modules to manipulate IP addresses, files, regular expressions, templates and rest calls.   
 
 ### Presentations 
-[- **Python-for-network-engineers**](https://github.com/ksator/python-for-network-engineers/blob/master/Python-for-network-engineers.pdf)  
+The presentations are available into this repo
+[- **Python-for-network-engineers.pdf**](https://github.com/ksator/python-for-network-engineers/blob/master/Python-for-network-engineers.pdf)  
 [- **Python-training.pdf**](https://github.com/ksator/python-for-network-engineers/blob/master/Python-training.pdf) 
 
 ### Scripts
