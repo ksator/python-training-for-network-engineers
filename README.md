@@ -1,27 +1,29 @@
-# python-for-network-enginners
+# Python for network enginners
 
 This course is useful to network engineers with no python programming knowledge, who wants to use python to manage junos devices.   
 This is a hands-on training, with step-by-step instructions and many basics examples.   
 The course covers an introduction to Python programming, it includes also the PyEZ library to interact with JUNOS devices as well as an overview of some other Python modules to manipulate IP addresses, files, regular expressions, templates and rest calls.   
 
-The course is **Python training -nov 2015.pdf"**.   
-All the scripts are available into this project.  
+### Presentations 
+[- **Python-for-network-engineers**](https://github.com/ksator/python-for-network-engineers/blob/master/Python-for-network-engineers.pdf)
+[- **Python-training.pdf**](https://github.com/ksator/python-for-network-engineers/blob/master/Python-training.pdf) 
 
+### Scripts
+All the scripts are available into this project.  
 The examples and code in this document are for learning and educational purposes.   
 The samples were created with the goals of clarity and ease of understanding.   
 If you are writing code for a real application, you would write some code differently :-)  
 
-### AGENDA  
-INTRODUCTION TO NETWORK AUTOMATION  
-THE BASICS ABOUT PYTHON PROGRAMMING  
-IP ADDRESSES MANIPULATION  
-FILES MANIPULATION  
-TEMPLATES WITH JINJA2   
-VARIABLES DEFINITION WITH YAML  
-JUNOS AUTOMATION WITH PYEZ LIBRARY  
-REST CALLS HANDLING  
-
-There are additionnal contents in **network automation workshop.pdf** (json, ansible, git, continious integration, vagrant, and a quiz).  
+### Agenda  
+- INTRODUCTION TO NETWORK AUTOMATION  
+- INTRODUCTION TO PYTHON PROGRAMMING 
+- IP ADDRESSES MANIPULATION  
+- FILES MANIPULATION  
+- BUILDING DOCUMENTS WITH JINJA2 TEMPLATES
+- YAML (HUMANS TO PROGRAMS) 
+- JUNOS AUTOMATION WITH PYEZ PYTHON LIBRARY
+- JSON  DATA FORMAT (EXCHANGE DATA BETWEEN APPLICATIONS) 
+- PROGRAMMATIC ACCESS WITH REST APIs
 
 ### More examples on of how to use network automation with Junos:  
 https://github.com/ksator/ansible-training-for-junos  
