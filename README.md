@@ -1,4 +1,4 @@
-# What to find in thos project
+### What to find in thos project
 A "Python for network enginners" course.   
 It is useful to network engineers with no python programming knowledge, who wants to use python to manage junos devices.   
 This is a hands-on training, with step-by-step instructions and many basics examples.   
@@ -17,14 +17,14 @@ If you are writing code for a real application, you would write some code differ
 
 ### Agenda  
 - introduction to network automation
-- ntroduction to python programming
-- ip addresses manipulation
+- introduction to python programming
+- IP addresses manipulation
 - files manipulation
 - building documents with jinja2 templates
-- yaml (humans to programs)
-- junos automation with pyez python library
-- json  data format (exchange data between applications)
-- programmatic access with rest apis
+- YAML (humans to programs)
+- junos automation with PyEZ python library
+- JSON  data format (exchange data between applications)
+- programmatic access with REST APIs
 
 ### More examples on of how to use network automation with Junos:  
 https://github.com/ksator/ansible-training-for-junos  
