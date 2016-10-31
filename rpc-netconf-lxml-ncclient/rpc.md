@@ -119,6 +119,24 @@ cnf = dev.rpc.get_config()
 print etree.tostring(cnf)  
 ```
 
+####get_config in xml with a filter  
+retrieve configuration from the Junos device
+and use Filter_xml to defines what to retrieve (when omitted the entire configuration is returned) 
+http://junos-pyez.readthedocs.io/en/2.0.1/jnpr.junos.html#jnpr.junos.rpcmeta._RpcMetaExec.get_config 
+the following returns the device host-name configured with “set system host-name”:
+```
+config = dev.rpc.get_config(filter_xml=etree.XML(‘<configuration><system><host-name/></system></configuration>’)
+```
+the following returns the "show configuration security ipsec | display xml": 
+```
+filter=”<configuration><security><ipsec/></security></configuration>”
+result=router.rpc.get_config(filter_xml=etree.XML(filter))
+```
+
+
+
+
+
 ##### example:    
 
 ```
