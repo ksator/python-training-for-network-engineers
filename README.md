@@ -27,9 +27,9 @@ If you are writing code for a real application, you would write some code differ
 - programmatic access with REST APIs
 
 ### More examples on of how to use network automation with Junos:  
-https://github.com/ksator/ansible-training-for-junos-automation
-https://github.com/ksator/junos-verifications-automation-with-jsnapy
-https://github.com/ksator/vagrant-with-junos 
+https://github.com/ksator/ansible-training-for-junos-automation   
+https://github.com/ksator/junos-verifications-automation-with-jsnapy   
+https://github.com/ksator/vagrant-with-junos   
 
 ### Contributions, bugs, questions or enhancement requests:  
 please submit github issues or pull requests.  
