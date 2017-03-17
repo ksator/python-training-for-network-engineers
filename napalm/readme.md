@@ -10,6 +10,12 @@ Usages:
 you can use napalm into a python script or as a cli tool.  
 into a python script:  
 ```
+ksator@ubuntu:~$ more conf.txt 
+system {
+    host-name newhostname;
+    }
+```
+```
 ksator@ubuntu:~$ python
 >>> import napalm
 >>> driver = napalm.get_network_driver('junos')
@@ -96,6 +102,11 @@ ksator@ubuntu:~$ python
 >>> device.is_alive()
 {u'is_alive': False}
 >>>
+>>> device.load_merge_candidate(filename='conf.txt')
+>>> device.compare_config()
+'[edit system]\n-  host-name newname;\n+  host-name newhostname;'
+>>> device.rollback()
+>>> device.close()
 >>> exit()
 ```
 You can use napalm cli tool:  
