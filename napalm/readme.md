@@ -6,7 +6,9 @@ installation:
 sudo pip install napalm
 
 ```
-Usage:  
+Usages:
+you can use napalm into a python script or as a cli tool.  
+into a python script:  
 ```
 ksator@ubuntu:~$ python
 >>> import napalm
@@ -96,3 +98,19 @@ ksator@ubuntu:~$ python
 >>>
 >>> exit()
 ```
+You can use napalm cli tool:  
+
+to get the help, run this command:  
+```
+cl_napalm_configure --help
+```
+
+usage example (dry run, push the configuration file config_file.conf to the device 172.30.179.107 and print the changes):  
+```
+cl_napalm_configure --user pytraining --vendor junos --strategy replace --optional_args 'port=830' --dry-run 172.30.179.107 napalm/config_file.conf
+```
+
+
+
+
+
