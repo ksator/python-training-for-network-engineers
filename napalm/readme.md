@@ -104,7 +104,15 @@ to get the help, run this command:
 ```
 cl_napalm_configure --help
 ```
-
+Example with dry run:
+```
+ksator@ubuntu:~$ cl_napalm_configure --user pytraining --vendor junos --strategy merge --dry-run 172.30.177.170 napalm/conf.txt 
+Enter password: 
+[edit system]
+-  host-name mx80-17;
++  host-name newhostname;
+ksator@ubuntu:~$ 
+```
 
 
 
