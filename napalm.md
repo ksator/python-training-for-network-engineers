@@ -93,5 +93,6 @@ ksator@ubuntu:~$ python
 >>> device.close()
 >>> device.is_alive()
 {u'is_alive': False}
->>> 
+>>>
+>>> exit()
 ```
