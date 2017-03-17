@@ -95,6 +95,11 @@ ksator@ubuntu:~$ python
  u'uptime': 15827760,
  u'vendor': u'Juniper'}
 >>> 
+>>> device.load_merge_candidate(filename='conf.txt')
+>>> device.compare_config()
+'[edit system]\n-  host-name newname;\n+  host-name newhostname;'
+>>> device.rollback()
+>>>
 >>> device.is_alive()
 {u'is_alive': True}
 >>>
@@ -102,11 +107,6 @@ ksator@ubuntu:~$ python
 >>> device.is_alive()
 {u'is_alive': False}
 >>>
->>> device.load_merge_candidate(filename='conf.txt')
->>> device.compare_config()
-'[edit system]\n-  host-name newname;\n+  host-name newhostname;'
->>> device.rollback()
->>> device.close()
 >>> exit()
 ```
 You can use napalm cli tool:  
