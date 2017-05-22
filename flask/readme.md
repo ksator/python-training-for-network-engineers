@@ -114,7 +114,6 @@ Date: Mon, 22 May 2017 11:21:08 GMT
   }
 }
 ```
-##### Retrieve another task: 
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/2
 HTTP/1.0 200 OK
@@ -163,7 +162,7 @@ Date: Mon, 22 May 2017 11:21:24 GMT
   }
 }
 ```
-##### Retrieve list of tasks:
+###### Retrieve list of tasks:
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks
 HTTP/1.0 200 OK
@@ -195,7 +194,7 @@ Date: Mon, 22 May 2017 11:21:27 GMT
   ]
 }
 ```
-##### Retrieve a task:
+###### Retrieve a task:
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/3
 HTTP/1.0 200 OK
@@ -214,6 +213,60 @@ Date: Mon, 22 May 2017 11:21:30 GMT
 }
 ```
 
+##### Delete an existing task: 
+```
+$ curl -i -X DELETE http://localhost:5000/todo/api/v1.0/tasks/1
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 21
+Server: Werkzeug/0.12.2 Python/2.7.6
+Date: Mon, 22 May 2017 11:51:01 GMT
+
+{
+  "result": true
+}
+$ curl -i http://localhost:5000/todo/api/v1.0/tasks
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 173
+Server: Werkzeug/0.12.2 Python/2.7.6
+Date: Mon, 22 May 2017 11:51:07 GMT
+
+{
+  "tasks": [
+    {
+      "description": "Need to find a good Python tutorial on the web", 
+      "done": false, 
+      "id": 2, 
+      "title": "Learn Python"
+    }
+  ]
+}
+$ curl -i http://localhost:5000/todo/api/v1.0/tasks/1
+HTTP/1.0 404 NOT FOUND
+Content-Type: application/json
+Content-Length: 27
+Server: Werkzeug/0.12.2 Python/2.7.6
+Date: Mon, 22 May 2017 11:51:12 GMT
+
+{
+  "error": "Not found"
+}
+$ curl -i -X DELETE http://localhost:5000/todo/api/v1.0/tasks/1
+HTTP/1.0 404 NOT FOUND
+Content-Type: application/json
+Content-Length: 27
+Server: Werkzeug/0.12.2 Python/2.7.6
+Date: Mon, 22 May 2017 11:51:25 GMT
+
+{
+  "error": "Not found"
+}
+
+```
+
+
+
 ### Python script debug output
 ```
 $ python app2.py 
@@ -228,4 +281,5 @@ $ python app2.py
 127.0.0.1 - - [22/May/2017 13:21:24] "POST /todo/api/v1.0/tasks HTTP/1.1" 201 -
 127.0.0.1 - - [22/May/2017 13:21:27] "GET /todo/api/v1.0/tasks HTTP/1.1" 200 -
 127.0.0.1 - - [22/May/2017 13:21:30] "GET /todo/api/v1.0/tasks/3 HTTP/1.1" 200 -
+...
 ```
