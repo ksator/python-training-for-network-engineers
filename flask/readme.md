@@ -37,7 +37,7 @@ def get_task(task_id):
         abort(404)
     return jsonify({'task': task[0]})
 
-# handle http 404 differently
+# handle the http 404 error in json instead of html
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
