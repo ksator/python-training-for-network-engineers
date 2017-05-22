@@ -1,6 +1,7 @@
+### requirements
 you need to ```sudo pip install flask```
 
-python script app.py content:
+### python script app.py content:
 ```
 # import flask 
 from flask import Flask, jsonify, abort, make_response, request
@@ -59,7 +60,7 @@ def create_task():
 # use the run method of the class Flask
 app.run(debug=True)
 ```
-Excecute the python script: 
+### Excecute the python script: 
 ```
 $ python app.py 
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
@@ -67,8 +68,9 @@ $ python app.py
  * Debugger is active!
  * Debugger PIN: 761-615-843
 ```
-make rest calls: 
-Retrieve list of tasks:
+### make rest calls:   
+##### Retrieve list of tasks:
+
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks
 HTTP/1.0 200 OK
@@ -94,7 +96,7 @@ Date: Mon, 22 May 2017 11:20:58 GMT
   ]
 }
 ```
-Retrieve a task:
+##### Retrieve a task:
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/1
 HTTP/1.0 200 OK
@@ -112,7 +114,7 @@ Date: Mon, 22 May 2017 11:21:08 GMT
   }
 }
 ```
-Retrieve another task: 
+##### Retrieve another task: 
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/2
 HTTP/1.0 200 OK
@@ -130,7 +132,7 @@ Date: Mon, 22 May 2017 11:21:10 GMT
   }
 }
 ```
-Note the 404 error is in json instead of html: 
+##### Note the 404 error is in json instead of html: 
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/3
 HTTP/1.0 404 NOT FOUND
@@ -143,7 +145,7 @@ Date: Mon, 22 May 2017 11:21:12 GMT
   "error": "Not found"
 }
 ```
-create a new task:
+##### create a new task:
 ```
 $ curl -i -H "Content-Type: application/json" -X POST -d '{"title":"Read a book"}' http://localhost:5000/todo/api/v1.0/tasks
 HTTP/1.0 201 CREATED
@@ -161,7 +163,7 @@ Date: Mon, 22 May 2017 11:21:24 GMT
   }
 }
 ```
-Retrieve list of tasks:
+##### Retrieve list of tasks:
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks
 HTTP/1.0 200 OK
@@ -193,7 +195,7 @@ Date: Mon, 22 May 2017 11:21:27 GMT
   ]
 }
 ```
-Retrieve a task:
+##### Retrieve a task:
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/3
 HTTP/1.0 200 OK
