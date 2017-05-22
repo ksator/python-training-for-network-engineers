@@ -68,6 +68,7 @@ $ python app.py
  * Debugger PIN: 761-615-843
 ```
 make rest calls: 
+Retrieve list of tasks:
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks
 HTTP/1.0 200 OK
@@ -93,6 +94,7 @@ Date: Mon, 22 May 2017 11:20:58 GMT
   ]
 }
 ```
+Retrieve a task:
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/1
 HTTP/1.0 200 OK
@@ -110,6 +112,7 @@ Date: Mon, 22 May 2017 11:21:08 GMT
   }
 }
 ```
+Retrieve another task: 
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/2
 HTTP/1.0 200 OK
@@ -127,6 +130,7 @@ Date: Mon, 22 May 2017 11:21:10 GMT
   }
 }
 ```
+Note the 404 error is in json instead of html: 
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/3
 HTTP/1.0 404 NOT FOUND
@@ -139,6 +143,7 @@ Date: Mon, 22 May 2017 11:21:12 GMT
   "error": "Not found"
 }
 ```
+create a new task:
 ```
 $ curl -i -H "Content-Type: application/json" -X POST -d '{"title":"Read a book"}' http://localhost:5000/todo/api/v1.0/tasks
 HTTP/1.0 201 CREATED
@@ -156,6 +161,7 @@ Date: Mon, 22 May 2017 11:21:24 GMT
   }
 }
 ```
+Retrieve list of tasks:
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks
 HTTP/1.0 200 OK
@@ -187,6 +193,7 @@ Date: Mon, 22 May 2017 11:21:27 GMT
   ]
 }
 ```
+Retrieve a task:
 ```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/3
 HTTP/1.0 200 OK
