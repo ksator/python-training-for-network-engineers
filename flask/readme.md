@@ -68,7 +68,10 @@ $ python app.py
  * Debugger is active!
  * Debugger PIN: 761-615-843
 ```
-### make rest calls:   
+### make rest calls: 
+The below rest calls are with curl.  
+if you prefer to make rest calls using a python rest client, please refer to these examples about the requests module https://github.com/ksator/python-training-for-network-engineers/tree/master/rest_basics 
+
 ##### Retrieve list of tasks:
 
 ```
@@ -225,6 +228,8 @@ Date: Mon, 22 May 2017 11:51:01 GMT
 {
   "result": true
 }
+```
+```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks
 HTTP/1.0 200 OK
 Content-Type: application/json
@@ -242,6 +247,8 @@ Date: Mon, 22 May 2017 11:51:07 GMT
     }
   ]
 }
+```
+```
 $ curl -i http://localhost:5000/todo/api/v1.0/tasks/1
 HTTP/1.0 404 NOT FOUND
 Content-Type: application/json
@@ -252,6 +259,8 @@ Date: Mon, 22 May 2017 11:51:12 GMT
 {
   "error": "Not found"
 }
+```
+```
 $ curl -i -X DELETE http://localhost:5000/todo/api/v1.0/tasks/1
 HTTP/1.0 404 NOT FOUND
 Content-Type: application/json
