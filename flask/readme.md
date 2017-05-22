@@ -145,7 +145,7 @@ Date: Mon, 22 May 2017 11:21:12 GMT
   "error": "Not found"
 }
 ```
-##### create a new task:
+##### create a new task (http method is post, http response code is 201):
 ```
 $ curl -i -H "Content-Type: application/json" -X POST -d '{"title":"Read a book"}' http://localhost:5000/todo/api/v1.0/tasks
 HTTP/1.0 201 CREATED
@@ -212,4 +212,20 @@ Date: Mon, 22 May 2017 11:21:30 GMT
     "title": "Read a book"
   }
 }
+```
+
+### Python script debug output
+```
+$ python app2.py 
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 761-615-843
+127.0.0.1 - - [22/May/2017 13:20:58] "GET /todo/api/v1.0/tasks HTTP/1.1" 200 -
+127.0.0.1 - - [22/May/2017 13:21:08] "GET /todo/api/v1.0/tasks/1 HTTP/1.1" 200 -
+127.0.0.1 - - [22/May/2017 13:21:10] "GET /todo/api/v1.0/tasks/2 HTTP/1.1" 200 -
+127.0.0.1 - - [22/May/2017 13:21:12] "GET /todo/api/v1.0/tasks/3 HTTP/1.1" 404 -
+127.0.0.1 - - [22/May/2017 13:21:24] "POST /todo/api/v1.0/tasks HTTP/1.1" 201 -
+127.0.0.1 - - [22/May/2017 13:21:27] "GET /todo/api/v1.0/tasks HTTP/1.1" 200 -
+127.0.0.1 - - [22/May/2017 13:21:30] "GET /todo/api/v1.0/tasks/3 HTTP/1.1" 200 -
 ```
