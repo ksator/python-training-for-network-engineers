@@ -1,12 +1,19 @@
+## Designing a restfull api with flask
+
+inspired by this tuto https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
+
 ### requirements
 you need to ```sudo pip install flask```
 
-### python script app.py content:
+### python script content:
 ```
+more app.py
+# you need to "sudo pip install flask"
+
 # import flask 
 from flask import Flask, jsonify, abort, make_response, request
 
-# instanciate the class Flask. app is an istance of the class Flask so this is an object. app is a variable. 
+# instakciate the class Flask. app is an istance of the class Flask so this is an object. app is a variable. 
 app = Flask(__name__)
 
 # tasks is a variable, of type list. each item is a dictionnary.
@@ -38,7 +45,7 @@ def get_task(task_id):
         abort(404)
     return jsonify({'task': task[0]})
 
-# handle the http 404 error in json instead of html
+# handle http 404 differently
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
@@ -57,8 +64,28 @@ def create_task():
     tasks.append(task)
     return jsonify({'task': task}), 201
 
+# rest call to delete 
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['DELETE'])
+def delete_task(task_id):
+    task = [task for task in tasks if task['id'] == task_id]
+    if len(task) == 0:
+        abort(404)
+    tasks.remove(task[0])
+    return jsonify({'result': True})
+
+# rest call to update 
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['PUT'])
+def update_task(task_id):
+    task = [task for task in tasks if task['id'] == task_id]
+    task[0]['title'] = request.json.get('title', task[0]['title'])
+    task[0]['description'] = request.json.get('description', task[0]['description'])
+    task[0]['done'] = request.json.get('done', task[0]['done'])
+    return jsonify({'task': task[0]})
+
+
 # use the run method of the class Flask
 app.run(debug=True)
+
 ```
 ### Excecute the python script: 
 ```
@@ -274,7 +301,80 @@ Date: Mon, 22 May 2017 11:51:25 GMT
 
 ```
 
+#### Update existing tasks
+```
+$ curl -i http://localhost:5000/todo/api/v1.0/tasks
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 173
+Server: Werkzeug/0.12.2 Python/2.7.6
+Date: Mon, 22 May 2017 12:11:29 GMT
 
+{
+  "tasks": [
+    {
+      "description": "Need to find a good Python tutorial on the web", 
+      "done": false, 
+      "id": 2, 
+      "title": "Learn Python"
+    }
+  ]
+}
+```
+```
+$ curl -i -H "Content-Type: application/json" -X PUT -d '{"done":true}' http://localhost:5000/todo/api/v1.0/tasks/2
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 151
+Server: Werkzeug/0.12.2 Python/2.7.6
+Date: Mon, 22 May 2017 12:11:43 GMT
+
+{
+  "task": {
+    "description": "Need to find a good Python tutorial on the web", 
+    "done": true, 
+    "id": 2, 
+    "title": "Learn Python"
+  }
+}
+```
+```
+$ curl -i http://localhost:5000/todo/api/v1.0/tasks/2
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 151
+Server: Werkzeug/0.12.2 Python/2.7.6
+Date: Mon, 22 May 2017 12:11:55 GMT
+
+{
+  "task": {
+    "description": "Need to find a good Python tutorial on the web", 
+    "done": true, 
+    "id": 2, 
+    "title": "Learn Python"
+  }
+}
+```
+```
+$ curl -i http://localhost:5000/todo/api/v1.0/tasks
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 172
+Server: Werkzeug/0.12.2 Python/2.7.6
+Date: Mon, 22 May 2017 12:12:03 GMT
+
+{
+  "tasks": [
+    {
+      "description": "Need to find a good Python tutorial on the web", 
+      "done": true, 
+      "id": 2, 
+      "title": "Learn Python"
+    }
+  ]
+}
+
+```
 
 ### Python script debug output
 ```
