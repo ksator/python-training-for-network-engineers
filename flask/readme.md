@@ -5,7 +5,7 @@ python script app.py:
 # import flask 
 from flask import Flask, jsonify, abort, make_response, request
 
-# instakciate the class Flask. app is an istance of the class Flask so this is an object. app is a variable. 
+# instanciate the class Flask. app is an istance of the class Flask so this is an object. app is a variable. 
 app = Flask(__name__)
 
 # tasks is a variable, of type list. each item is a dictionnary.
