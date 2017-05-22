@@ -1,6 +1,5 @@
+python script app.py:
 ```
-more app.py
-
 # you need to "sudo pip install flask"
 
 # import flask 
