@@ -1,7 +1,7 @@
+you need to ```sudo pip install flask```
+
 python script app.py content:
 ```
-# you need to "sudo pip install flask"
-
 # import flask 
 from flask import Flask, jsonify, abort, make_response, request
 
