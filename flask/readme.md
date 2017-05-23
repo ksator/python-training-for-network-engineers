@@ -1,19 +1,18 @@
 ## Designing a restfull api with flask
 
-inspired by this tuto https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
+Inspired by this tuto https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
 
 ### requirements
 you need to ```sudo pip install flask```
 
 ### python script content:
 ```
-more app.py
-# you need to "sudo pip install flask"
+$ more app.py
 
 # import flask 
 from flask import Flask, jsonify, abort, make_response, request
 
-# instakciate the class Flask. app is an istance of the class Flask so this is an object. app is a variable. 
+# instanciate the class Flask. app is an istance of the class Flask so this is an object. app is a variable. 
 app = Flask(__name__)
 
 # tasks is a variable, of type list. each item is a dictionnary.
@@ -32,12 +31,12 @@ tasks = [
     }
 ]
 
-# this is what to do wit an http call using get method to /todo/api/v1.0/tasks
+# this is what to do with an http call using get method to /todo/api/v1.0/tasks
 @app.route('/todo/api/v1.0/tasks', methods=['GET'])
 def get_tasks():
     return jsonify({'tasks': tasks})
 
-# this is what to do wit an http call using get method to /todo/api/v1.0/tasks/xxx
+# this is what to do with an http call using get method to /todo/api/v1.0/tasks/xxx
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
 def get_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
@@ -87,10 +86,12 @@ def update_task(task_id):
 app.run(debug=True)
 
 ```
-### Excecute the python script: 
+### Execute the python script: 
 
 ```
 $ export FLASK_APP=app.py
+$ env | grep FLASK_APP
+FLASK_APP=app.py
 $ echo $FLASK_APP
 app.py
 $ flask run
@@ -108,8 +109,10 @@ $ python app.py
  * Debugger PIN: 761-615-843
 ```
 ### make rest calls: 
+you need a rest client:  
 The below rest calls are with curl.  
-if you prefer to make rest calls using a python rest client, please refer to these examples about the requests module https://github.com/ksator/python-training-for-network-engineers/tree/master/rest_basics 
+if you prefer to make rest calls using a python rest client, please refer to these examples about the requests module https://github.com/ksator/python-training-for-network-engineers/tree/master/rest_basics  
+You can aslo use a graphical rest client (postman ....) 
 
 ##### Retrieve list of tasks:
 
