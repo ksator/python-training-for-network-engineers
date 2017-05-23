@@ -88,6 +88,18 @@ app.run(debug=True)
 
 ```
 ### Excecute the python script: 
+
+```
+$ export FLASK_APP=app.py
+$ echo $FLASK_APP
+app.py
+$ flask run
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 761-615-843
+```
+
 ```
 $ python app.py 
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
