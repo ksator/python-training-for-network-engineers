@@ -425,3 +425,17 @@ $ python app2.py
 >>> 
 >>> 
 ```
+
+### How to Execute ansible playboolks or python scripts making rest calls to server API
+we know from the previous section how to execute shell commands from python. so we can use this to execute python scripts or ansible playbooks.  
+we also need to change the app.py file in order to execute shell commands in the functions. as example: 
+```
+@app.route('/todo/api/v1.0/tasks', methods=['GET'])
+def get_tasks():
+    shell_cmd1 = "ls -l"
+    shell_cmd1_p = subprocess.Popen(shell_cmd1, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    out, err = shell_cmd1_p.communicate()
+    return out
+```
+
+
