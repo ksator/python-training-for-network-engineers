@@ -404,3 +404,24 @@ $ python app2.py
 127.0.0.1 - - [22/May/2017 13:21:30] "GET /todo/api/v1.0/tasks/3 HTTP/1.1" 200 -
 ...
 ```
+### Execute shell commands with Python
+```
+>>> import subprocess
+>>> 
+>>> subprocess.check_output(["echo", "Hello World!"])
+'Hello World!\n'
+>>> 
+>>> p = subprocess.Popen("echo Hello World!", shell=True, stdout = subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+>>> out,err = p.communicate()
+>>> out
+'Hello World!\n'
+>>> err
+''
+>>> 
+>>> shell_cmd1 = "echo Hello World!"
+>>> shell_cmd1_p = subprocess.Popen(shell_cmd1, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+>>> shell_cmd1_p.communicate()[0]
+'Hello World!\n'
+>>> 
+>>> 
+```
