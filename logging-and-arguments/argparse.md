@@ -1,7 +1,7 @@
-#argparse   
+# argparse   
 It is a parsing module  
 
-##Example   
+## Example   
 import argparse  
 parser = argparse.ArgumentParser()  
 parser.parse_args()  
@@ -13,7 +13,7 @@ optional arguments:
   -h, --help  show this help message and exit  
 
 The --help option, which can also be shortened to -h, is the only option we get for free (i.e. no need to specify it)  
-##Introducing Positional arguments  
+## Introducing Positional arguments  
 import argparse  
 parser = argparse.ArgumentParser()  
 parser.add_argument("echo", help="echo the string you use here")  
@@ -30,7 +30,7 @@ positional arguments:
 optional arguments:  
   -h, --help  show this help message and exit  
 
-##Introducing Optional arguments  
+## Introducing Optional arguments  
 
 import argparse  
 parser = argparse.ArgumentParser()  
@@ -50,11 +50,11 @@ optional arguments:
   -h, --help  show this help message and exit  
   --verbose   increase output verbosity  
 
-###store_true  
+### store_true  
 keyword, action, and give it the value "store_true". 
 This means that, if the option is specified, assign the value True to args.verbose  
 
-###Short options  
+### Short options  
 import argparse  
 parser = argparse.ArgumentParser()  
 parser.add_argument("-v", "--verbose", help="increase output verbosity", action="store_true")  
@@ -73,7 +73,7 @@ optional arguments:
   -v, --verbose  increase output verbosity  
 
 
-###choices  
+### choices  
 import argparse  
 parser = argparse.ArgumentParser()  
 parser.add_argument("square", type=int, help="display a square of a given number")  
