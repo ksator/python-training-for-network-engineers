@@ -1,8 +1,8 @@
-#logging level: 
+# logging level: 
 debug, info, warning, error, critical  
 The default level is WARNING  
 
-#A simple example:  
+# A simple example:  
 
 import logging  
 logging.warning('Watch out!')  \# will print a message to the console  
@@ -12,7 +12,7 @@ which would print:
 
 WARNING:root:Watch out!  
 
-#Logging to a file:  
+# Logging to a file:  
 
 import logging  
 logging.basicConfig(filename='example.log',level=logging.DEBUG)  
@@ -26,7 +26,7 @@ DEBUG:root:This message should go to the log file
 INFO:root:So should this  
 WARNING:root:And this, too  
 
-#Changing the format of displayed messages:  
+# Changing the format of displayed messages:  
 
 import logging  
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)  
@@ -41,7 +41,7 @@ INFO:So should this
 WARNING:And this, too  
 
 
-#Displaying the date/time in messages:  
+# Displaying the date/time in messages:  
 
 import logging  
 logging.basicConfig(format='%(asctime)s %(message)s')  
@@ -51,7 +51,7 @@ which should print something like this:
 
 2010-12-12 11:41:42,612 is when this event was logged.  
 
-##changing the date/time format:  
+## changing the date/time format:  
 
 The default format for date/time display (shown above) is ISO8601. If you need more control over the formatting of the date/time, provide a datefmt argument to basicConfig, as in this example:  
 
@@ -64,7 +64,7 @@ which would display something like this:
 12/12/2010 11:46:36 AM is when this event was logged.  
 
 
-#Logger objects:  
+# Logger objects:  
 
 Logger.setLevel()  
 specifies the lowest-severity log message a logger will handle  
@@ -78,19 +78,19 @@ Logger.debug(), Logger.info(), Logger.warning(), Logger.error(), and Logger.crit
 getLogger()   
 returns a reference to a logger instance with the specified name if it is provided, or root if not.  
 
-##handlers:  
+## handlers:  
 
 few handler types: StreamHandler, FileHandler, ...  
 
-##methods:  
+## methods:  
 
-###setLevel()   
+### setLevel()   
 method, just as in logger objects, specifies the lowest severity that will be dispatched to the appropriate destination.   
 Why are there two setLevel() methods?  
 The level set in the logger determines which severity of messages it will pass to its handlers.   
 The level set in each handler determines which messages that handler will send on.  
 
-###setFormatter()   
+### setFormatter()   
 selects a Formatter object for this handler to use.  
 
 the default date format is:  
@@ -100,7 +100,7 @@ with the milliseconds at the end
 The following message format string will log the time in a human-readable format, the severity of the message, and the contents of the message, in that order:  
 '%(asctime)s - %(levelname)s - %(message)s'  
 
-#full example  
+# full example  
 
 import logging  
 
@@ -128,7 +128,7 @@ logger.warn('warn message')
 logger.error('error message')  
 logger.critical('critical message')  
 
-##Running this module from the command line produces the following output:  
+## Running this module from the command line produces the following output:  
 
 $ python simple_logging_module.py  
 2005-03-19 15:10:26,618 - simple_example - DEBUG - debug message  
