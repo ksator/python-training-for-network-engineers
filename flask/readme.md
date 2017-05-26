@@ -100,7 +100,7 @@ $ flask run
  * Debugger is active!
  * Debugger PIN: 761-615-843
 ```
-
+or
 ```
 $ python app.py 
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
