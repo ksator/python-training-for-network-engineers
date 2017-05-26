@@ -393,7 +393,7 @@ Date: Mon, 22 May 2017 12:12:03 GMT
 
 ### Python script debug output
 ```
-$ python app2.py 
+$ python app.py 
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
  * Restarting with stat
  * Debugger is active!
