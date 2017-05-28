@@ -22,6 +22,7 @@ tasks = [
     }
 ]
 
+# route() is used to bind a function to a URL.
 # this is what to do wit an http call using get method to /todo/api/v1.0/tasks
 @app.route('/todo/api/v1.0/tasks', methods=['GET'])
 def get_tasks():
