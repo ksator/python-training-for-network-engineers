@@ -84,6 +84,8 @@ def update_task(task_id):
 
 
 # use the run method of the class Flask
+# Default port is 5000. 
+# Default host is 127.0.0.1. Use ```host='0.0.0.0'``` to have the server available externally as well. 
 app.run(debug=True)
 
 ```
@@ -393,6 +395,9 @@ Date: Mon, 22 May 2017 12:12:03 GMT
 ```
 
 ### Python script debug output
+
+There is a debug output because we used ```app.run(debug=True)```
+
 ```
 $ python app.py 
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
