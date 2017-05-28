@@ -1,6 +1,9 @@
 ## Designing a restfull api with flask
 
-Inspired by this tuto https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
+Inspired by these tuto:   
+https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask  
+https://www.raspberrypi.org/learning/python-web-server-with-flask/worksheet/  
+
 
 ### requirements
 you need to ```sudo pip install flask```
@@ -446,5 +449,3 @@ def get_tasks():
     out, err = shell_cmd1_p.communicate()
     return out
 ```
-
-
