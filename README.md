@@ -50,7 +50,7 @@ junos automation with IaC (Infrastructure as Code, gitlab CI, gitlab runners, gi
 https://github.com/ksator/network-Infrastructure-as-Code
 
 How to delegate junos automation tasks chatting to hubot with slack (chatops, chatbot, hubot, slack, docker, Travic CI, ansible)  
-https://github.com/ksator/junos-automation-with-chatops-in-ams  
+https://github.com/ksator/junos-automation-with-chatops    
 
 How to automate Junos with stackstorm (stackstorm, event driven automtion, napalm, ansible)  
 https://github.com/ksator/junos-automation-with-stackstorm  
