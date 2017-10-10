@@ -1,6 +1,9 @@
 NAPALM (Network Automation and Programmability Abstraction Layer with Multivendor support) is a Python library to interact with different network operating systems.  
 source code: https://github.com/napalm-automation/napalm  
 doc: https://napalm.readthedocs.io/en/latest/index.html  
+
+**For more details about Junos automation with NAPALM you can refer to https://github.com/ksator/junos-automation-with-NAPALM **
+
 installation:  
 ```
 sudo pip install napalm
