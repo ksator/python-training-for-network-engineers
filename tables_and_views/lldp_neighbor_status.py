@@ -25,7 +25,7 @@ f=open("lldp_neighbors.txt", "a")
 f.write ("\n" + str (datetime.now()) + "\n")
 
 for host in my_list_of_switches:
-	switch = Device(host=host, user='pytraining', password='Poclab123')
+	switch = Device(host=host, user='device_username', password='device_password')
 	switch.open()
 	print "\nLLDP neighbors of device " + host + " (hostname is " + switch.facts["hostname"]+ "):"
 	f.write ("\nLLDP neighbors of device " + host + " (hostname is " + switch.facts["hostname"]+ "):\n")
